@@ -36,6 +36,13 @@ class CoinmasterDataTest {
       var data = new CoinmasterData("test", "test", CoinMasterRequest.class).inZone(zone);
       assertThat(data.isAccessible(), is(false));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"Crimbo24", "Removed"})
+    void removedIfParentZoneIsRemoved(final String zone) {
+      var data = new CoinmasterData("test", "test", CoinMasterRequest.class).inZone(zone);
+      assertThat(data.isRemoved(), is(true));
+    }
   }
 
   @Nested
