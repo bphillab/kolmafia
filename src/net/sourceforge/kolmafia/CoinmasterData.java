@@ -1524,6 +1524,10 @@ public class CoinmasterData implements Comparable<CoinmasterData> {
     return null;
   }
 
+  public boolean isRemoved(){
+    return "Removed".equals(this.getRootZone());
+  }
+
   public String canSell() {
     // Returns an error reason or null
     return this.canSell.get();
