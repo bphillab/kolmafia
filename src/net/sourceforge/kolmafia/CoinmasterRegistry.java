@@ -162,7 +162,7 @@ public abstract class CoinmasterRegistry {
       cm.registerShop();
       cm.registerCurrencies();
       cm.registerShopRows();
-      cm.registerPurchaseRequests();
+      if (!cm.isRemoved()) cm.registerPurchaseRequests();
       cm.registerPropertyToken();
     }
   }
