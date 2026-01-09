@@ -32,6 +32,7 @@ public class SkeletonOfCrimboPastRequest extends CoinMasterRequest {
           .withTokenPattern(TOKEN_PATTERN)
           .withItem(KNUCKLEBONE)
           .withBuyURL("choice.php?whichchoice=1567")
+          .withBuyAction("option")
           .withBuyItems(master)
           .withBuyPrices(master)
           .withEquip(SkeletonOfCrimboPastRequest::equip)
