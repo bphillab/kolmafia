@@ -84,6 +84,8 @@ Item	All-Hallow's Steve's fright wig	Sleaze Damage: +20, Spooky Resistance: +2, 
 Item	Amoon-Ra Cowtep's nemes	Mysticality Percent: +35, Spell Damage: +25, Spell Critical Percent: +15, Last Available: "2016-02", Familiar Effect: "atk, 1xVolley"
 Item	Ancient Saucehelm	Mysticality: +11, Spell Damage: +11, Class: "Sauceror", Familiar Effect: "3xGhuol, cap 25"
 Item	ancient turtle shell helmet	Meat Drop: +10, Familiar Effect: "hot atk, cap 8"
+# angelbone halo: 15% Chance to avoid an enemy attack
+Item	angelbone halo	HP Regen Min: 7, HP Regen Max: 11, Spleen Drop: +77, Last Available: "2026-12"
 Item	anniversary concrete fedora	Muscle: +1, Mysticality: +1, Moxie: +1, Familiar Effect: "5xVolley, 5xLep, cap 2"
 Item	antique helmet	Initiative: -10, Spooky Resistance: +2, Breakable, Familiar Effect: "0.5xPotato, 0.5xFairy"
 Item	antique nutcracker hat	Initiative: +15, Moxie Percent: +15, Last Available: "2019-12"
@@ -179,6 +181,8 @@ Item	demon-horned hat	Moxie: +4, Familiar Effect: "hot atk, 1xLep, cap 17"
 # depleted Crimbonium football helmet: Reduce all damage taken from monster attacks by 50%
 Item	depleted Crimbonium football helmet	Initiative: -50, Last Available: "2021-12"
 Item	depleted Grimacite ninja mask	Moxie Percent: [5*G], PvP Fights: [G], Last Available: "2011-12", Familiar Effect: "1xBarrr, 1xFairy, cap 25"
+# devilbone helmet: Adds Hot Damage to your Attacks
+Item	devilbone helmet	Monster Level: +13, Combat Rate: +5, Last Available: "2026-12"
 Item	dice-print do-rag	Random Monster Modifiers: +1
 Item	dilapidated wizard hat	Hot Damage: +10, Hot Spell Damage: +15, Familiar Effect: "cap 31"
 # Dinsey mascot mask: Changes Your Avatar
@@ -604,6 +608,8 @@ Item	Zombo's skullcap	Muscle Percent: +20, Familiar Weight: +10, Class: "Turtle 
 Item	1337 7r0uZ0RZ	Muscle: +6, Moxie: -3, Familiar Effect: "2xPotato, cap 27"
 Item	adobe arsecover	Muscle Percent: [20+20*min(1,effect(Adobe Arsecover Subscription))], Item Drop: [10+10*min(1,effect(Adobe Arsecover Subscription))], Last Available: "2024-12"
 Item	alpha-mail pants	Familiar Effect: "atk, 1xBarrr, cap 35"
+# angelbone kilt: 15% Chance to avoid an enemy attack
+Item	angelbone kilt	HP Regen Min: 7, HP Regen Max: 11, Food Drop: +77, Last Available: "2026-12"
 Item	Angelhair Culottes	Mysticality: +11, Spell Damage: +15, Class: "Pastamancer", Familiar Effect: "1.5xPotato, 2xGhoul, cap 31"
 Item	antique greaves	Initiative: -10, Breakable, Familiar Effect: "1xBarrr"
 Item	antique nutcracker pants	Meat Drop: +15, Moxie Percent: +15, Last Available: "2019-12"
@@ -672,6 +678,8 @@ Item	demonskin trousers	Hot Resistance: +2, Familiar Effect: "hot atk, 3xPotato,
 Item	depleted Grimacite shinguards	Muscle Percent: [5*G], PvP Fights: [G], Last Available: "2011-12", Familiar Effect: "atk, 3xBarrr, cap 25"
 # designer sweatpants: oh, and also a 5% discount at NPC stores
 Item	designer sweatpants	Muscle: [5+(2*floor(sqrt(pref(sweat))))], Mysticality: [5+(2*floor(sqrt(pref(sweat))))], Moxie: [5+(2*floor(sqrt(pref(sweat))))], Damage Reduction: [5+(1*floor(sqrt(pref(sweat))))], Hot Resistance: [1+(0.5*floor(sqrt(pref(sweat))))], Sleaze Damage: [10+(5*floor(sqrt(pref(sweat))))], Sleaze Spell Damage: [10+(5*floor(sqrt(pref(sweat))))], Last Available: "2022-07", Conditional Skill (Equipped): "Sweat Flick", Conditional Skill (Equipped): "Sweat Flood", Conditional Skill (Equipped): "Sweat Spray", Conditional Skill (Equipped): "Sweat Sip", Conditional Skill (Equipped): "Make Sweat-Ade", Conditional Skill (Equipped): "Drench Yourself in Sweat", Conditional Skill (Equipped): "Sip Some Sweat", Conditional Skill (Inventory): "Sweat Out Some Booze"
+# devilbone greaves: Adds Hot Damage to your Attacks
+Item	devilbone greaves	Monster Level: +13, Spleen Capacity: +1, Last Available: "2026-12"
 Item	dice-print pajama pants	Random Monster Modifiers: +1
 # digibritches: CyberRealm: Take less damage from processes
 Item	digibritches	Last Available: "2025-12"
@@ -1008,6 +1016,8 @@ Item	Crimbuccaneer bombjacket	Moxie Percent: +25, Ranged Damage: +25, Last Avail
 Item	Crimbuccaneer shirt	Familiar Weight: [+10*event(December)], Last Available: "2023-12"
 Item	demonskin jacket	Mysticality: +5, Hot Spell Damage: +5
 Item	denim jacket	Mysticality: +10, MP Regen Min: 4, MP Regen Max: 8, Last Available: "2018-09"
+# devilbone corset: Adds Hot Damage to your Attacks
+Item	devilbone corset	Monster Level: +13, Stomach Capacity: +1, Last Available: "2026-12"
 Item	Dragonscale breastplate	Muscle: +15, Muscle Percent: +25, Spooky Resistance: +3, Stench Resistance: +3, Hot Resistance: +3, Cold Resistance: +3, Sleaze Resistance: +3, Last Available: "2018-04"
 Item	dreadful sweater	HP Regen Min: 10, HP Regen Max: 20, MP Regen Min: 10, MP Regen Max: 20, Kruegerand Drop: 5
 Item	duct tape shirt	Moxie: +9, Meat Drop: +20
@@ -1163,6 +1173,8 @@ Item	amok putter	Hot Damage: +9, Cold Damage: +9, Initiative: +18
 Item	ancient Elf dessert spoon	Hot Spell Damage: +20, Cold Spell Damage: +20, Spooky Spell Damage: +20, Stench Spell Damage: +20, Sleaze Spell Damage: +20, Spell Damage Percent: +20, Last Available: "2023-12"
 Item	ancient ice cream scoop	Spell Damage: +20
 Item	ancient stone fist	Damage Reduction: 2, Maximum HP: +20, Last Available: "2009-06"
+# angelbone totem: 15% Chance to avoid an enemy attack
+Item	angelbone totem	HP Regen Min: 7, HP Regen Max: 11, Spleen Capacity: +1, Single Equip, Last Available: "2026-12"
 Item	anger blaster	Hot Damage: +10, Last Available: "2013-12", Conditional Skill (Equipped): "Rage Flame"
 Item	antique accordion	Song Duration: 10
 Item	antique machete	Muscle Percent: +5
@@ -1386,6 +1398,8 @@ Item	dented scepter	Experience (Muscle): +5, HP Regen Min: 5, HP Regen Max: 10, 
 Item	depleted Grimacite hammer	Monster Level: [5*G], Last Available: "2011-12"
 Item	depleted Grimacite kneecapping stick	Critical Hit Percent: [ceil(G/2)], Last Available: "2007-06"
 Item	detective roscoe	Ranged Damage: +10, Weakens Monster, Booze Drop: +20, Last Available: "2016-07"
+# devilbone flute: Adds Hot Damage to your Attacks
+Item	devilbone flute	Monster Level: +13, Mana Cost (combat): -2, Last Available: "2026-12"
 Item	diabolical crossbow	Spooky Damage: +30, Critical Hit Percent: +10, Slime Hates It: +1
 Item	diamond-studded cane	Moxie: +5, Class: "Disco Bandit"
 Item	didgeridooka	Moxie: +9
@@ -2849,6 +2863,10 @@ Item	Amulet of Yendor	Mana Cost: +3, Initiative: -10, Single Equip, Last Availab
 Item	anchovy can key	Food Drop: +100, Last Available: "2020-08"
 # anemoney clip: +50% Meat Drops (Underwater only)
 Item	anemoney clip	Meat Drop: [25+50*env(underwater)], Single Equip, Last Available: "2019-12"
+# angelbone chopsticks: 15% Chance to avoid an enemy attack
+Item	angelbone chopsticks	HP Regen Min: 7, HP Regen Max: 11, Stomach Capacity: +1, Single Equip, Last Available: "2026-12"
+# angelbone dice: 15% Chance to avoid an enemy attack
+Item	angelbone dice	HP Regen Min: 7, HP Regen Max: 11, Liver Capacity: +1, Single Equip, Last Available: "2026-12"
 Item	Ankh of Badahnkadh	Spell Damage Percent: +25, Single Equip
 Item	ankleweights	PvP Fights: +4, Experience: +1, Single Equip, Last Available: "2014-12"
 Item	annealed drippy orb	Drippy Resistance: +5
@@ -3080,6 +3098,10 @@ Item	depleted Grimacite astrolabe	Mysticality Percent: [5*G], PvP Fights: [G], S
 Item	depleted Grimacite grappling hook	Moxie Percent: [5*G], Adventures: [G], Single Equip, Last Available: "2011-12"
 Item	depleted Grimacite weightlifting belt	Muscle Percent: [5*G], Adventures: [G], Single Equip, Last Available: "2011-12"
 Item	dethklok	Spooky Damage: +15, Last Available: "2011-09"
+# devilbone rosary: Adds Hot Damage to your Attacks
+Item	devilbone rosary	Monster Level: +13, Liver Capacity: +1, Single Equip, Last Available: "2026-12"
+# devilbone shinguards: Adds Hot Damage to your Attacks
+Item	devilbone shinguards	Monster Level: +13, Experience: +3, Single Equip, Last Available: "2026-12"
 # diamond necklace
 Item	dice belt buckle	Random Monster Modifiers: +1, Single Equip
 Item	dice ring	Random Monster Modifiers: +1, Single Equip
@@ -3183,14 +3205,14 @@ Item	freshwater pearl necklace	Spell Critical Percent: +5
 Item	Frigid Northern Beans	Cold Spell Damage: [15*(1+skill(Beanweaver))], Last Available: "2016-02"
 # frosty button: Makes your fireball attacks deal Cold damage
 Item	frosty button	Single Equip
-Item	frosty halo	Item Drop: +25, Unarmed, Single Equip, Last Available: "2011-09"
+Item	frosty halo	Item Drop: [25*unarmed], Single Equip, Last Available: "2011-09"
 Item	Frosty's carrot	Stench Resistance: +3, Sleaze Resistance: +3, Class: "Seal Clubber", Single Equip
 Item	Frown Exerciser	Monster Level: [5*G], Moxie: -5, Single Equip, Last Available: "2012-12"
 Item	fudge pocket square	Muscle: +5, Last Available: "2011-11"
 Item	fudgecycle	Adventures: +7, Candy Drop: +100, HP Regen Min: 10, HP Regen Max: 20, MP Regen Min: 10, MP Regen Max: 20, Single Equip, Last Available: "2011-11"
 Item	furniture dolly	Initiative: +30, Single Equip
 Item	furry green earmuffs	Cold Resistance: +1
-Item	furry halo	Familiar Weight: +5, Unarmed, Single Equip, Last Available: "2011-09"
+Item	furry halo	Familiar Weight: [5*unarmed], Single Equip, Last Available: "2011-09"
 Item	fuzzy bracelets	Muscle: +15, Mysticality: +15, Moxie: +15
 # Fuzzy Slippers of Hatred: Makes running more comfortable
 Item	Fuzzy Slippers of Hatred	Combat Rate: -5, Reduce Enemy Defense: 10, Spell Damage Percent: +60, Single Equip
@@ -3724,7 +3746,7 @@ Item	Sheriff badge	Mysticality Percent: +50, Spooky Resistance: +3, Single Equip
 # Sheriff moustache: Provides 1/3 Authority
 Item	Sheriff moustache	Moxie Percent: +50, Initiative: +25, Single Equip, Lasts Until Rollover, Last Available: "2024-10"
 Item	shin gourds	Damage Reduction: 5, Weapon Damage: +10, Single Equip, Last Available: "2010-11"
-Item	shining halo	Experience: +3, Unarmed, Single Equip, Last Available: "2011-09"
+Item	shining halo	Experience: [3*unarmed], Single Equip, Last Available: "2011-09"
 Item	shiny hood ornament	Muscle: +5, Mysticality: +5, Moxie: +5, Maximum HP: +30, Maximum MP: +30, Initiative: +10
 Item	shiny ring	Muscle: +3, Mysticality: +3, Moxie: +3
 Item	shiny tribal beads	Mysticality: +6, Last Available: "2009-06"
@@ -3842,6 +3864,8 @@ Item	tarrrnished charrrm bracelet	Stench Damage: +10, Stench Spell Damage: +10, 
 Item	teflon swim fins	Moxie Percent: -5, Initiative: +25, Single Equip, Initiative Penalty: [10*env(underwater)], Item Drop Penalty: [10*env(underwater)], Meat Drop Penalty: [10*env(underwater)]
 Item	terra cotta tie tack	Experience (Moxie): +3, Meat Drop: +20, Single Equip, Last Available: "2020-12", Conditional Skill (Equipped): "Unleash Terra Cotta Army"
 Item	terra cotta truss	Experience (Muscle): +3, Initiative: +40, Single Equip, Last Available: "2020-12", Conditional Skill (Equipped): "Unleash Terra Cotta Army"
+# The Eternity Codpiece: Holds Gems
+Item	The Eternity Codpiece	Muscle: +5, Mysticality: +5, Moxie: +5, Last Available: "2026-12"
 Item	the Ley Incursion's waist	Mysticality: +15, Mysticality Percent: +25, Experience (Mysticality): +5, Single Equip, Last Available: "2018-04"
 Item	The Lost Glasses	Reduce Enemy Defense: 15, Hot Resistance: +2, Single Equip
 Item	The One Mood Ring	Muscle Percent: [5*G], Mysticality Percent: [5*G], Moxie Percent: [5*G], Monster Level: [25-5*G], Single Equip, Last Available: "2015-08"
@@ -3854,7 +3878,7 @@ Item	ticksilver ring	Adventures: +6, PvP Fights: +4, Single Equip, Last Availabl
 Item	tie-dyed fannypack	Spooky Damage: +2, Stench Damage: +2, Hot Damage: +2, Cold Damage: +2, Sleaze Damage: +2, Item Drop: +10, Single Equip, Last Available: "2016-08"
 # Time Bandit Badge of Courage: Proves your worth to the Time Bandits
 Item	Time Bandit Badge of Courage	Muscle Limit: 50, Mysticality Limit: 50, Moxie Limit: 50
-Item	time halo	Adventures: +5, Unarmed, Single Equip, Last Available: "2011-09"
+Item	time halo	Adventures: [5*unarmed], Single Equip, Last Available: "2011-09"
 # Time Lord Badge of Honor: Proves your worth to the Time Lords
 Item	Time Lord Badge of Honor	Muscle Limit: 50, Mysticality Limit: 50, Moxie Limit: 50
 # time-twitching toolbelt: Reveals various Time-Forgotten Secrets
@@ -4266,6 +4290,8 @@ Item	Zombo's skull ring	Moxie Percent: +15, PvP Fights: +4, Single Equip
 
 # Allied Radio Backpack: Call for support
 Item	Allied Radio Backpack	Muscle Percent: +30, Mysticality Percent: +30, Moxie Percent: +30, Maximum HP: +30, Maximum MP: +30, Initiative: +30, Conditional Skill (Equipped): "Call in an Airstrike"
+# angelbone mantle: 15% Chance to avoid an enemy attack
+Item	angelbone mantle	HP Regen Min: 7, HP Regen Max: 11, Booze Drop: +77, Last Available: "2026-12"
 Item	anniversary pewter cape	Muscle: +1, Mysticality: +1, Moxie: +1
 Item	antique nutcracker cape	Spell Damage Percent: +30, Mysticality Percent: +15, Last Available: "2019-12"
 Item	auxiliary backbone	PvP Fights: +3, Last Available: "2012-10"
@@ -5536,6 +5562,7 @@ Effect	A Brush with Grossness	Stench Resistance: +3, Stench Damage: +15, Stench 
 Effect	A Bug's Life	Maximum HP Percent: +100, HP Regen Min: 8, HP Regen Max: 10
 Effect	A Contender	Muscle Percent: +200, Mysticality Percent: +200, Moxie Percent: +200
 Effect	A Date With Tomorrow	Adventures: +10
+Effect	A Drop of the Divine	HP Regen Min: 5, HP Regen Max: 7
 Effect	A Few Extra Pounds	Maximum HP: [5*min(L,11)]
 Effect	A Girl Named Sue	Familiar Weight: +5, Experience (familiar): +5, Familiar Damage: +10
 # A Hole in the World: Time destroys everything
@@ -6202,7 +6229,7 @@ Effect	Dazed, Confused	Avatar: "wastoid"
 # Dazzling Smile: Increases your ability to spread Crimbo cheer
 Effect	Dead Man's Handoff	Avatar: "gamblin' man"
 Effect	Dead Sexy	Avatar: "sexy zombie"
-# Deadened Palate: Bleah
+# Deadened palate: Bleah
 Effect	Deadly Flashing Blade	Weapon Damage: +10
 # Deadly Lampblade: 100% chance of poisoning opponent
 Effect	Deadly Lampblade	Spooky Damage: +75
@@ -6566,7 +6593,7 @@ Effect	Fresh Breath	Combat Rate: +10, Moxie Percent: +20, Moxie: +10
 Effect	Fresh Scent	Combat Rate: -5
 Effect	Friendly Chops	Meat Drop: +100, Sleaze Resistance: +5
 Effect	Frigid Weapon	Cold Damage: +3
-Effect	Frigidalmatian	Damage Aura: 1
+Effect	Frigidalmatian	Damage Aura: 1, Lantern: 1, Lantern Element: "Cold"
 Effect	Frio Como Helado	Cold Damage: +10
 Effect	Frisky Spirit	Moxie: +15
 Effect	Frog In Your Throat	Muscle: +25
@@ -6799,8 +6826,8 @@ Effect	High-Test Fishing Line	Fishing Skill: +5
 Effect	Highland Sheen	Moxie: +10
 Effect	Hint of Bacon	HP Regen Min: 10, HP Regen Max: 20
 Effect	Hip to Be Square Dancin'	Item Drop: +10
-Effect	[1872]Hip to the Jive	Avatar: "hep cat"
-Effect	[1701]Hip to the Jive	Experience (familiar): +2, Familiar Weight: +10, Familiar Damage: +20
+Effect	[1872]Hip to the Jive	Avatar: "hep cat", Wiki Name: "Hip to the Jive (avatar effect)"
+Effect	[1701]Hip to the Jive	Experience (familiar): +2, Familiar Weight: +10, Familiar Damage: +20, Wiki Name: "Hip to the Jive"
 Effect	Hippy Antimilitarism	Combat Rate: -10
 Effect	Hippy Flavor	Mysticality: +15
 Effect	Hippy Stench	Combat Rate: +5
@@ -8879,7 +8906,7 @@ Skill	Marginally Insane	Maximum MP Percent: +10
 Skill	Mariachi Memory	Additional Song: 1
 Skill	Master Accordion Master Thief	Pickpocket Chance: +10
 Skill	Master Egg Hunter	Item Drop: +10
-Skill	Master of the Surprising Fist	Weapon Damage: +10, Damage Reduction: 10, Unarmed
+Skill	Master of the Surprising Fist	Weapon Damage: [10*unarmed], Damage Reduction: [10*unarmed]
 Skill	Master Saucier	Spell Damage Percent: +10
 Skill	Matter Over Mind	Maximum MP Percent: +25
 Skill	Medical Manchego	Maximum HP Percent: +20, HP Regen Min: 3, HP Regen Max: 5
@@ -9147,6 +9174,7 @@ Skill	Zombie Maestro	Mana Cost: -1
 Outfit	8-Bit Finery	Initiative: +25
 Outfit	Adobe Armor	Damage Reduction: 10
 Outfit	Aeroutfit	Meat Drop: +40
+Outfit	Angelbone Vestments	Familiar Weight: +5
 Outfit	Animelf Apparel	HP Regen Min: 4, HP Regen Max: 6, MP Regen Min: 2, MP Regen Max: 3
 Outfit	Antique Arms and Armor	Damage Reduction: 5, Muscle: +15, Initiative: -10
 Outfit	Antique Nutcracker Outfit	Muscle: +25, Mysticality: +25, Moxie: +25, Meat Drop: +25, Item Drop: +25
@@ -9184,6 +9212,7 @@ Outfit	Cursed Skeleton Pirate Costume	Critical Hit Percent: +10, Spell Critical 
 Outfit	Cursed Zombie Pirate Costume	Spooky Damage: +30
 Outfit	Dark Bro's Vestments	Spooky Spell Damage: +40
 Outfit	Dental Drip	Candy Drop: +25
+Outfit	Devilbone Prison	Monster Level: +25
 Outfit	Dinsey's Exoskeleton	Muscle: +100, Mysticality: +100, Moxie: +100
 Outfit	Dire Drifter Duds	Familiar Weight: +5
 Outfit	Dreadful Bugbear Suit	Hot Damage: +50, Hot Spell Damage: +50
@@ -9895,7 +9924,7 @@ Item	shoo-fish pie	Effect: "Fishy", Effect Duration: 20, Last Available: "2010-1
 Item	shrapnel jelly donut	Effect: "Filled with Magic", Effect Duration: 30, Last Available: "2011-09"
 Item	shushed potatoes	Effect: "Noise Cancelled", Effect Duration: 100, Last Available: "2017-12"
 Item	skeleton quiche	Last Available: "2012-10"
-Item	skull-shaped Crimboween cookie	Effect: "Bells in the Batfry", Effect Duration: 10, Last Available: "2023-06"
+Item	skull-shaped Crimboween cookie	Effect: "Carol of the Bones", Effect Duration: 10, Last Available: "2023-06"
 Item	Skully's hot chocolate	Effect: "Skull Full of Hot Chocolate", Effect Duration: 10
 Item	sleazy hi mein	Effect: "Sleazy Breath", Effect Duration: 5
 Item	slice of pizza	Last Available: "2013-02"
@@ -9927,7 +9956,7 @@ Item	stomach turnover	Last Available: "2010-10"
 Item	Strix stix	Effect: "Sugar-Frosted Pet Guts", Effect Duration: 40
 Item	stuffed red and green pepper (stale)	Last Available: "2020-12"
 Item	sugarplum ration	Effect: "Sugarplum Visions", Effect Duration: 50, Last Available: "2023-12"
-Item	sun-dried tofu	Effect: "Oversaturated Palate", Effect Duration: 1, Last Available: "2010-08"
+Item	sun-dried tofu	Effect: "Deadened palate", Effect Duration: 1, Last Available: "2010-08"
 Item	sundae ration	Last Available: "2023-12"
 Item	super good fruit	Last Available: "2023-02"
 Item	Susie's cupcake	Last Available: "2025-08"
@@ -10053,7 +10082,7 @@ Item	Aye Aye, Tooth Tooth	Effect: "Arresistible", Effect Duration: 15, Last Avai
 # *** KoL bug: bad rum and good cola grants Faerie Fortune, no item grants Fanatical Fortune.
 # *** Bug reported and acknowledged. bad rum and good cola DOES give Fanatical Fortune, but
 # *** the description is wrong for unknown reasons. Maybe the description will eventually be fixed..
-Item	bad rum and good cola	Effect: "Faerie Fortune", Effect Duration: 30, Last Available: "2018-04"
+Item	bad rum and good cola	Effect: "Fanatical Fortune", Effect Duration: 30, Last Available: "2018-04"
 Item	bark rootbeer	Effect: "Bark of the Dog", Effect Duration: 40, Last Available: "2015-12"
 Item	barrel-aged eggnog	Last Available: "2020-12"
 Item	barrel-aged martini	Effect: "Just Aged Enough", Effect Duration: 50, Last Available: "2015-09"
@@ -10569,6 +10598,7 @@ Item	alien plant goo	Effect: "Celestial Mind", Effect Duration: 40, Last Availab
 Item	alien protein powder	Last Available: "2014-05"
 Item	ancient medicinal herbs	Effect: "Ancient Fortitude", Effect Duration: 50, Last Available: "2016-01"
 # ancient pills: Restore 30-40 MP
+Item	angelbone fragments	Last Available: "2026-12"
 Item	antimatter wad	Last Available: "2013-12"
 Item	antique bottle of cough syrup	Effect: "The Q Is Talking To You", Effect Duration: 10
 Item	armored prawn	Effect: "Rushtacean'", Effect Duration: 50, Last Available: "2016-03"
@@ -10616,6 +10646,7 @@ Item	cuppa Activi tea	Last Available: "2015-09"
 Item	cuppa Cruel tea	Last Available: "2015-09"
 Item	cute mushroom	Effect: "Cute Vision", Effect Duration: 50, Last Available: "2015-09"
 Item	demonic paste	Effect: "Demonic Flavor", Effect Duration: 10, Last Available: "2011-08"
+Item	devilbone chunks	Last Available: "2026-12"
 # dieting pill: Eat less, Enjoy it More!
 Item	drenchrome 2.0	Effect: "Cyber Slicer", Effect Duration: 30, Last Available: "2025-12"
 Item	ectoplasmic paste	Effect: "Spooky Flavor", Effect Duration: 10, Last Available: "2011-08"
@@ -10797,7 +10828,7 @@ Item	alphabet gum	Effect: "Bubble, Bubble", Effect Duration: 5
 Item	Ancient Protector Soda	Effect: "Ancient Protected", Effect Duration: 50
 Item	angry agate	Effect: "Misplaced Rage", Effect Duration: 20, Last Available: "2023-02"
 Item	Angry Farmer candy	Effect: "Sugar Rush", Effect Duration: 10
-Item	Angry Farmer's Wife Candy	Effect: "Sugar Rush", Effect Duration: 10
+Item	Angry Farmer's Wife Candy	Effect: "Sugar Rush", Effect Duration: 10, Effect: "Amorous", Effect Duration: 10
 Item	ant agonist	Effect: "All Fired Up", Effect Duration: 10
 Item	anti-burn cream	Effect: "Anti-Burning", Effect Duration: 20, Last Available: "2021-12"
 Item	anti-creep cream	Effect: "Anti-Creeped", Effect Duration: 20, Last Available: "2021-12"
@@ -10842,6 +10873,7 @@ Item	bellhop bell	Effect: "Ringing Ears", Effect Duration: 10, Last Available: "
 Item	Ben-Gal&trade; Balm	Effect: "Go Get 'Em, Tiger!", Effect Duration: 3
 Item	bent scrap metal	Effect: "Armor-Plated", Effect Duration: 10
 Item	Bettie page	Effect: "Paging Betty", Effect Duration: 20, Last Available: "2018-02"
+Item	biblically accurate gumdrops	Effect: "A Drop of the Divine", Effect Duration: 10
 Item	big dribbly candle	Effect: "Waxing Mystical", Effect Duration: 10
 Item	Big Punk	Effect: "Big Punkin'", Effect Duration: 50
 Item	Bit O' Ectoplasm	Effect: "Sugar Rush", Effect Duration: 5
@@ -10931,7 +10963,7 @@ Item	cheap wind-up clock	Effect: "Ticking Clock", Effect Duration: 10
 Item	Cheer-Up soda	Effect: "Cheered Up", Effect Duration: 20, Last Available: "2017-12"
 Item	chicle de salchicha	Effect: "Here to Kick Ass", Effect Duration: 20
 Item	chiffon lemon	Effect: "Bulging Jaw Muscles", Effect Duration: 20
-Item	children of the candy corn	Effect: "Sugar Rush", Effect Duration: 5
+Item	children of the candy corn	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Chilblains of the Corn", Effect Duration: 3
 Item	chitin powder	Effect: "Chitin Powderful", Effect Duration: 10
 Item	chitin powder paste	Effect: "Pastey Power", Effect Duration: 30
 Item	choco-Crimbot	Last Available: "2014-12"
@@ -10981,9 +11013,9 @@ Item	counterskeleton elixir	Effect: "Bones Against Bones", Effect Duration: 50, 
 Item	cranberry cordial	Effect: "Cranberry Cordiality", Effect Duration: [R]
 Item	crappy waiter disguise	Effect: "Crappily Disguised as a Waiter", Effect Duration: 5
 Item	crepe paper peanut candy	Effect: "Crepe Paper Pedestrian Cacophony", Effect Duration: 20
-Item	Crimbo candied pecan	Effect: "Sweet, Nuts", Effect Duration: 5, Last Available: "2009-12"
-Item	Crimbo fudge	Effect: "Busy Bein' Delicious", Effect Duration: 5, Last Available: "2009-12"
-Item	Crimbo peppermint bark	Effect: "Peppermint Bite", Effect Duration: 5, Last Available: "2009-12"
+Item	Crimbo candied pecan	Effect: "Sweet, Nuts", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-12"
+Item	Crimbo fudge	Effect: "Busy Bein' Delicious", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-12"
+Item	Crimbo peppermint bark	Effect: "Peppermint Bite", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-12"
 Item	Crimbot battery	Effect: "Batteries Included", Effect Duration: 50, Last Available: "2014-12"
 Item	crude crudit&eacute;s	Effect: "Crud&eacute;", Effect Duration: 10
 Item	crunchy brush	Effect: "Crunchy Steps", Effect Duration: 5, Last Available: "2024-02"
@@ -11093,7 +11125,7 @@ Item	Drizzlers&trade; Black Licorice	Effect: "Rainy Soul Miasma", Effect Duratio
 Item	drop of water-37	Effect: "Extra-Wet", Effect Duration: 30, Last Available: "2012-07"
 Item	drum of pomade	Effect: "Perfect Hair", Effect Duration: 10, Last Available: "2011-10"
 Item	Drunk Uncles holo-record	Effect: "Drunk and Avuncular", Effect Duration: 10
-Item	dubious peppermint	Effect: "Minty Freshness", Effect Duration: 5, Last Available: "2020-09"
+Item	dubious peppermint	Effect: "Minty Freshness", Effect Duration: 5, Effect: "Sugar Rush", Effect Duration: 3, Last Available: "2020-09"
 Item	eagle feather	Effect: "Eagle Eyes", Effect Duration: 20
 Item	ear candle	Effect: "Clear Ears, Can't Lose", Effect Duration: 80, Last Available: "2021-08"
 Item	Eau de Guaneau	Effect: "Chauve-Souris Merde Fou", Effect Duration: 10
@@ -11108,6 +11140,7 @@ Item	eldritch rub	Effect: "Infused with Sssshhsssblllrrggghsssssggggrrgglssss", 
 Item	electric mushroom	Effect: "Tingling Insides", Effect Duration: 20, Last Available: "2023-02"
 Item	Elf Guard eyedrops	Effect: "Elf Watch", Effect Duration: 30, Last Available: "2023-12"
 Item	Elizabeth's paintbrush	Effect: "Boschface", Effect Duration: 25
+# elven suicide capsule actually gives one of Sugar High, Sugar Smacks, Sugary Tongue
 Item	elven suicide capsule	Effect: "Sugar Rush", Effect Duration: 10, Last Available: "2009-12"
 Item	Elvish delight	Effect: "Cuts Like a Lightly-Buttered Knife", Effect Duration: 3
 Item	EMD holo-record	Effect: "Ministrations in the Dark", Effect Duration: 10
@@ -11115,14 +11148,14 @@ Item	emergency glowstick	Effect: "Glowing Hands", Effect Duration: 20, Last Avai
 Item	ennui-flavored potato chips	Effect: "Also Schmeckt Zarathustra", Effect Duration: 10
 Item	essential cameraderie	Effect: "2 Hearts, 1 Mind", Effect Duration: 50, Last Available: "2010-08"
 Item	essential soy	Effect: "Electrolyte Fantastic", Effect Duration: 50, Last Available: "2010-08"
-Item	Everlasting Deckswabber	Effect: "Sugar Rush", Effect Duration: 10
-Item	evil eyedrops of the ermine	Effect: "Ermine Eyes", Effect Duration: [R+5]
-Item	evil libation of liveliness	Effect: "Provocative Perkiness", Effect Duration: [R+5]
-Item	evil ointment of the occult	Effect: "Mystically Oiled", Effect Duration: [R+5]
-Item	evil philter of phorce	Effect: "Phorcefullness", Effect Duration: [R+5]
-Item	evil potion of potency	Effect: "Pronounced Potency", Effect Duration: [R+5]
-Item	evil serum of sarcasm	Effect: "Superhuman Sarcasm", Effect Duration: [R+5]
-Item	evil tomato juice of powerful power	Effect: "Tomato Power", Effect Duration: [R+5]
+Item	Everlasting Deckswabber	Effect: "Sugar Rush", Effect Duration: 10, Effect: "Chain Chain Chains", Effect Duration: 10
+Item	evil eyedrops of the ermine	Effect: "Ermine Eyes", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil libation of liveliness	Effect: "Provocative Perkiness", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil ointment of the occult	Effect: "Mystically Oiled", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil philter of phorce	Effect: "Phorcefullness", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil potion of potency	Effect: "Pronounced Potency", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil serum of sarcasm	Effect: "Superhuman Sarcasm", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
+Item	evil tomato juice of powerful power	Effect: "Tomato Power", Effect Duration: [R+5], Effect: "[600]A Little Bit Evil", Effect Duration: 10
 Item	evil vihuela	Effect: "El Tango de la Maldita Suegra", Effect Duration: 10
 Item	exotic travel brochure	Effect: "Expert Vacationer", Effect Duration: 20, Last Available: "2015-11"
 Item	experimental serum G-9	Effect: "Experimental Effect G-9", Effect Duration: 40, Last Available: "2014-10"
@@ -11235,7 +11268,7 @@ Item	glowing syringe	Effect: "Biologically Shocked", Effect Duration: 20
 Item	go-go potion	Effect: "Go-Gone", Effect Duration: 20, Last Available: "2014-05"
 Item	goblin water	Effect: "Wet and Greedy", Effect Duration: 100
 Item	Good 'n' Quiet	Effect: "Quiet 'n' Good", Effect Duration: 10
-Item	Good 'n' Slimy	Effect: "Sugar Rush", Effect Duration: 5
+Item	Good 'n' Slimy	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Slimed Stomach", Effect Duration: 1
 Item	gooey drippy candy bar	Effect: "Snichors", Effect Duration: 10
 Item	gourmet gourami oil	Effect: "Fishy, Oily", Effect Duration: 40
 Item	government	Effect: "I See Everything Thrice!", Effect Duration: 10, Last Available: "2014-05"
@@ -11349,7 +11382,7 @@ Item	Knob Goblin sharpening spray	Effect: "Sharp Weapon", Effect Duration: 5
 Item	Knob Goblin steroids	Effect: "Steroid Boost", Effect Duration: 5
 Item	Kokomo Resort Brand Suntan Oil	Effect: "Tropical Contact High", Effect Duration: 3, Last Available: "2015-04"
 Item	Kokomo Resort Pass	Effect: "Tropical Contact High", Effect Duration: 10, Last Available: "2023-08"
-Item	kumquat supersucker	Effect: "Koyaaniskumquatsi", Effect Duration: 30, Last Available: "2011-11"
+Item	kumquat supersucker	Effect: "Koyaaniskumquatsi", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	labrador cookie	Effect: "Insatiable Hunger", Effect Duration: 40, Last Available: "2015-08"
 Item	lavender candy heart	Effect: "Heart of Lavender", Effect Duration: 10, Last Available: "2007-02"
 Item	leftover chocolate bar	Effect: "Sugar Rush", Effect Duration: 50
@@ -11360,7 +11393,7 @@ Item	licorice root	Effect: "Rootin' Around", Effect Duration: 20, Last Available
 Item	licorice snake	Effect: "Whippin' It Good", Effect Duration: 20
 Item	LIDAR candle	Effect: "LIDARed", Effect Duration: 30, Last Available: "2024-12"
 Item	Life Goals Pamphlet	Effect: "Life Goals", Effect Duration: 25, Last Available: "2025-08"
-Item	lime supersucker	Effect: "In the Limelight", Effect Duration: 30, Last Available: "2011-11"
+Item	lime supersucker	Effect: "In the Limelight", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	lime-and-chile-flavored chewing gum	Effect: "Spicy Limeness", Effect Duration: 5
 Item	lion musk	Effect: "Lion in Ambush", Effect Duration: 20, Last Available: "2016-02"
 Item	liquid ice	Effect: "Cold as Ice", Effect Duration: 50
@@ -11459,7 +11492,7 @@ Item	neurostim pill	Effect: "Stimulated Brain", Effect Duration: 10, Last Availa
 Item	new habit	Effect: "Habituated", Effect Duration: 365, Last Available: "2017-10"
 Item	Nightstalker perfume	Effect: "Nightstalkin'", Effect Duration: 30, Last Available: "2011-10"
 Item	Northern pemmican	Effect: "Pemmican't", Effect Duration: 20
-Item	Now and Earlier	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2020-09"
+Item	Now and Earlier	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Confused", Effect Duration: 5, Last Available: "2020-09"
 Item	Nuclear Blastball	Effect: "Taste the Inferno", Effect Duration: 50, Last Available: "2011-05"
 Item	null-day exploit	Effect: "Null Afternoon", Effect Duration: 30, Last Available: "2025-12"
 Item	O'RLY manual	Effect: "You Read The Manual", Effect Duration: 20
@@ -11470,7 +11503,8 @@ Item	Oil of Parrrlay	Effect: "Well-Oiled", Effect Duration: 5
 Item	oil of slipperiness	Effect: "Slippery Oiliness", Effect Duration: [R]
 Item	oil of stability	Effect: "Stabilizing Oiliness", Effect Duration: [R]
 Item	ointment of the occult	Effect: "Mystically Oiled", Effect Duration: [R]
-Item	Okee-Dokee soda	Effect: "Sugar Rush", Effect Duration: 20, Last Available: "2011-05"
+# okee dokee effects are 10-20 turns
+Item	Okee-Dokee soda	Effect: "Sugar Rush", Effect Duration: 20, Effect: "Okee-Dokee Go!", Effect Duration: 10, Effect: "Okee-Dokee Computer", Effect Duration: 10, Effect: "Okee-Dokee, Smokee", Effect Duration: 10, Last Available: "2011-05"
 Item	old bronzer	Effect: "Sepia Tan", Effect Duration: 25
 Item	old candy wrapper	Effect: "Litterbug", Effect Duration: 5, Last Available: "2013-11"
 Item	old eyebrow pencil	Effect: "Browbeaten", Effect Duration: 25
@@ -11478,6 +11512,7 @@ Item	old love note	Effect: "Memories of Puppy Love", Effect Duration: 20, Last A
 Item	old rosewater cream	Effect: "Rosewater Mark", Effect Duration: 25
 Item	Omphalotus Omphaloskepsis mushroom	Effect: "Omphalotus Omnipresence", Effect Duration: 10, Last Available: "2014-05"
 Item	one piece of bubble gum	Effect: "Sugar Rush", Effect Duration: 10
+# one pill gives one of Larger, Small or nothing
 Item	one pill	Effect Duration: 0
 Item	orange and black Crimboween candy	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2020-09"
 Item	orange candy heart	Effect: "Heart of Orange", Effect Duration: 10, Last Available: "2007-02"
@@ -11508,7 +11543,7 @@ Item	patent sallowness tonic	Effect: "Patent Sallowness", Effect Duration: 50
 Item	pea brittle	Effect: "Brittled", Effect Duration: 20, Last Available: "2024-11"
 Item	peach lozenge	Effect: "The Halls of Moxiousness", Effect Duration: [R]
 Item	pear lozenge	Effect: "The Halls of Mysticality", Effect Duration: [R]
-Item	pear supersucker	Effect: "Dirty Pear", Effect Duration: 30, Last Available: "2011-11"
+Item	pear supersucker	Effect: "Dirty Pear", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	pec oil	Effect: "Oiled-Up", Effect Duration: 20
 Item	PEEZ dispenser	Effect: "Sugar Rush", Effect Duration: 5
 Item	peppermint pegleg	Effect: "Peppermint Endoskeleton", Effect Duration: 30, Last Available: "2024-12"
@@ -11654,7 +11689,7 @@ Item	ribbon candy	Effect: "Sugar Rush", Effect Duration: 10, Last Available: "20
 # robin's egg: When used in combat: weakens enemies by 50% and briefly stuns them
 Item	robin's egg	Effect: "Egged On", Effect Duration: 10, Last Available: "2016-12"
 Item	robot grease	Effect: "Greasy Peasy", Effect Duration: 30
-Item	Rock Pops	Effect: "Sugar Rush", Effect Duration: 3
+Item	Rock Pops	Effect: "Sugar Rush", Effect Duration: 3, Effect: "Popping Stomach", Effect Duration: 3
 Item	roll of meat	Effect: "Stick Emporium Membership", Effect Duration: 50
 Item	rubber nubbin	Effect: "You're Rubber", Effect Duration: 20, Last Available: "2014-08"
 Item	ruby on canes	Effect: "Ruby-ous", Effect Duration: 20, Last Available: "2014-12"
@@ -11684,7 +11719,7 @@ Item	seal lube	Effect: "Lubed", Effect Duration: 10
 Item	seal-brain elixir	Effect: "Sealed Brain", Effect Duration: 20
 Item	sealhide seal doll	Effect: "Red Misty-Eyed", Effect Duration: 10
 Item	seegar butt	Effect: "Stinking Cloud", Effect Duration: 10
-Item	Senior Mints	Effect: "Sugar Rush", Effect Duration: 3
+Item	Senior Mints	Effect: "Sugar Rush", Effect Duration: 3, Effect: "Confused", Effect Duration: 5
 Item	sensitive poetry journal	Effect: "Moon June Spooned", Effect Duration: 10, Last Available: "2007-06"
 Item	serum of sarcasm	Effect: "Superhuman Sarcasm", Effect Duration: [R]
 Item	shady shades	Effect: "Throwing Some Shade", Effect Duration: 1
@@ -11734,7 +11769,7 @@ Item	spooky lipstick	Effect: "Gothy", Effect Duration: 10
 Item	spooky nuggets	Effect: "Spooky Weapon", Effect Duration: 5
 Item	spooky powder	Effect: "Spookypants", Effect Duration: 5
 # spooky sap: Weakens enemies a lot when used as a combat item
-Item	spooky sap	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2009-10"
+Item	spooky sap	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Sappy Blood", Effect Duration: 5, Last Available: "2009-10"
 Item	spooky sound effects record	Effect: "Permanent Halloween", Effect Duration: 10
 Item	spoonful of Linguine-Os	Effect: "Blessing of the Hot Linguine", Effect Duration: 10, Last Available: "2013-11"
 Item	Spring Break Beach &quot;swimsuit&quot;	Effect: "Painted-On Bikini", Effect Duration: 50, Last Available: "2015-11"
@@ -11749,18 +11784,18 @@ Item	Stephen's secret formula	Effect: "Spookyravin'", Effect Duration: 20
 Item	sterno-flavored Hob-O	Effect: "Fire Down Below", Effect Duration: 1
 Item	sticky lava globs	Effect: "Burning Hands", Effect Duration: 20, Last Available: "2015-08"
 Item	stone wool	Effect: "Stone-Faced", Effect Duration: 5
-Item	strawberry supersucker	Effect: "Strawberry Alarm", Effect Duration: 30, Last Available: "2011-11"
+Item	strawberry supersucker	Effect: "Strawberry Alarm", Effect Duration: 30, Effect: "Sugar Rush", Effect Duration: 30, Last Available: "2011-11"
 Item	strawberry-flavored Hob-O	Effect: "Scariberi", Effect Duration: 1
 Item	STYX deodorant body spray	Effect: "Less Pervious", Effect Duration: 10
 Item	sugar banana	Effect: "Sweet and Yellow", Effect Duration: 10, Last Available: "2008-12"
 Item	sugar bunny	Effect: "Sweet Incentive", Effect Duration: 20, Last Available: "2014-05"
 Item	sugar cherry	Effect: "Sweet and Red", Effect Duration: 10, Last Available: "2008-12"
-Item	Sugar Cog	Effect: "Sugar Rush", Effect Duration: 5
+Item	Sugar Cog	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Sticky Hands", Effect Duration: 10
 Item	sugar fairy	Effect: "Dance of the Sugar Fairy", Effect Duration: 20, Last Available: "2014-05"
 Item	sugar lime	Effect: "Sweet and Green", Effect Duration: 10, Last Available: "2008-12"
 Item	sugar plum	Last Available: "2008-12"
 Item	sugar sphere	Effect: "Influence of Sphere", Effect Duration: 10
-Item	sugar-coated pine cone	Effect: "Sugar Rush", Effect Duration: 5, Last Available: "2020-09"
+Item	sugar-coated pine cone	Effect: "Sugar Rush", Effect Duration: 5, Effect: "Antsy in your Pantsy", Effect Duration: 10, Last Available: "2020-09"
 Item	Super Weight-Gain 9000	Effect: "Superveiny 9000", Effect Duration: 10
 Item	super-spiky hair gel	Effect: "Spiky Hair", Effect Duration: 5
 Item	Superdrifter holo-record	Effect: "Superdrifting", Effect Duration: 10
@@ -12963,6 +12998,7 @@ Item	Dinsey tattoo kit	Last Available: "2015-04"
 # discarded button: Absorb it for a useful skill!
 Item	disconnected intergnat	Free Pull, Last Available: "2016-05"
 Item	Discontent&trade; Winter Garden Catalog	Free Pull, Last Available: "2014-01"
+Item	discreetly-wrapped Eternity Codpiece	Free Pull, Last Available: "2026-12"
 # disease: Weakens enemies very slightly
 Item	Disgeist	Last Available: "2018-03"
 Item	Dish of Clarified Butter	Last Available: "2018-05"
@@ -13026,7 +13062,7 @@ Item	E.M.U. rocket thrusters	Last Available: "2011-06"
 Item	eaves droppers	Last Available: "2018-02"
 Item	eggman noodles	Last Available: "2010-03"
 # Egnaro berry: Restores MP and energizes you for a while
-Item	Egnaro berry	Last Available: "2018-03"
+Item	Egnaro berry	Effect: "Berry Experiential", Effect Duration: 20, Last Available: "2018-03"
 Item	El Vibrato punchcard (ATTACK)	Wiki Name: "El Vibrato punchcard (115 holes)"
 Item	El Vibrato punchcard (BUFF)	Wiki Name: "El Vibrato punchcard (129 holes)"
 Item	El Vibrato punchcard (BUILD)	Wiki Name: "El Vibrato punchcard (165 holes)"
@@ -13344,7 +13380,7 @@ Item	glowing frisbee	Free Pull, Last Available: "2011-12"
 Item	glowing New Age crystal	Last Available: "2015-08"
 # glowing spore pod: Briefly enhances your Mysticality
 # Glum berry: Removes negative effects and energizes you for a while
-Item	Glum berry	Last Available: "2018-03"
+Item	Glum berry	Effect: "Berry Experiential", Effect Duration: 20, Last Available: "2018-03"
 Item	gluttonous stone	Last Available: "2012-12"
 Item	gnashing teeth	Last Available: "2008-12"
 # Gnomitronic Hyperspatial Demodulizer: Science!
@@ -13623,7 +13659,7 @@ Item	Jackass Plumber home game	Last Available: "2011-11", Effect: "Gamer Rage", 
 Item	jam band bootleg	Last Available: "2018-09"
 # jam band flyers: Advertise!
 # Jamocha berry: Grants passive physical damage and energizes you for a while
-Item	Jamocha berry	Last Available: "2018-03", Effect: "Berry Thorny", Effect Duration: 20
+Item	Jamocha berry	Last Available: "2018-03", Effect: "Berry Thorny", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	jangly spurs	Last Available: "2016-02"
 # janitor sponge: Deals 20-30 <font color=green>Stench Damage</font> and briefly stuns your opponent
 # January's Garbage Tote: Allows you to rummage up Holiday Detritus
@@ -13656,7 +13692,7 @@ Item	jug of Sneaky Pete's Mojo	Free Pull
 Item	juggling ball	Last Available: "2014-12"
 # Junk-Bond: Weakens enemies somewhat and briefly stuns them
 # Keese berry: Improves your defenses and energizes you for a while
-Item	Keese berry	Last Available: "2018-03", Effect: "Berry Defensive", Effect Duration: 20
+Item	Keese berry	Last Available: "2018-03", Effect: "Berry Defensive", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	kerosene-soaked skip	Free Pull, Last Available: "2018-12"
 Item	kevlateflocite helmet	Last Available: "2007-12"
 Item	keycard &alpha;	Last Available: "2015-04"
@@ -14057,7 +14093,7 @@ Item	mysterious present	Last Available: "2011-04"
 # Mysterious Red Box: Can only be opened on February 29
 Item	Mysterious Red Box	Last Available: "2018-02"
 # Nadsat berry: Improves critical hit chance and energizes you for a while (also gives Berry Experiential)
-Item	Nadsat berry	Last Available: "2018-03", Effect: "Berry Critical", Effect Duration: 20
+Item	Nadsat berry	Last Available: "2018-03", Effect: "Berry Critical", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	nanofiber cloth	Last Available: "2007-12"
 # Nardz energy beverage: Restores 50-70 MP
 Item	nasty desk bell	Last Available: "2020-09"
@@ -14697,7 +14733,7 @@ Item	Shanty: Let's Beat Up This Drunken Sailor (used)	Skill: "Let's Beat Up This
 Item	Shanty: Look At That Drunken Sailor Dance	Skill: "Look At That Drunken Sailor Dance", Last Available: "2025-12"
 Item	Shanty: Look At That Drunken Sailor Dance (used)	Skill: "Look At That Drunken Sailor Dance", Last Available: "2025-12"
 Item	Shanty: Only Dogs Love a Drunken Sailor	Skill: "Only Dogs Love a Drunken Sailor", Last Available: "2025-12"
-Item	Shanty: Only Dogs Love Drunken Sailors (used)	Skill: "Only Dogs Love a Drunken Sailor", Last Available: "2025-12"
+Item	Shanty: Only Dogs Love a Drunken Sailor (used)	Skill: "Only Dogs Love a Drunken Sailor", Last Available: "2025-12"
 Item	Shanty: Who's Going to Pay This Drunken Sailor?	Skill: "Who's Going to Pay This Drunken Sailor?", Last Available: "2025-12"
 Item	Shanty: Who's Going to Pay This Drunken Sailor? (used)	Skill: "Who's Going to Pay This Drunken Sailor?", Last Available: "2025-12"
 # shard of double-ice: Deals <font color=blue>Cold Damage</font> based on your highest stat
@@ -14765,7 +14801,7 @@ Item	silver shotgun shell	Last Available: "2011-10"
 Item	Single Alice's Army Foil	Last Available: "2011-03"
 Item	sinistral homunculus	Free Pull, Last Available: "2020-04"
 # Sitrep berry: Restores HP and energizes you for a while
-Item	Sitrep berry	Last Available: "2018-03"
+Item	Sitrep berry	Effect: "Berry Experiential", Effect Duration: 20, Last Available: "2018-03"
 Item	sizzling desk bell	Last Available: "2020-09"
 # skate skates: Deals 150-300 Physical Damage and briefly stuns your opponent
 # skeletal skiff: <b>Allows Travel to The Mysterious Island of Mystery</b>
@@ -14819,7 +14855,7 @@ Item	SMOOCH bottlecap	Last Available: "2020-09"
 # snake oil: Increase the venom and medicine level of your briefcase full of snakes
 Item	snake skin	Last Available: "2018-11"
 # Snarf berry: Increases your stats and energizes you for a while
-Item	Snarf berry	Last Available: "2018-03", Effect: "Berry Statistical", Effect Duration: 20
+Item	Snarf berry	Last Available: "2018-03", Effect: "Berry Statistical", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 # sneaky wrapping paper: Hide gifts for other players in various locations
 Item	sneaky wrapping paper	Last Available: "2014-12"
 Item	Snoutlet	Last Available: "2018-03"
@@ -15066,7 +15102,7 @@ Item	talisman of Seshat	Free Pull
 Item	talking spade	Free Pull
 # tangle of rat tails: Deals 50-70 <font color=blueviolet>Sleaze Damage</font> and 100-120 <font color=green>Stench Damage</font>
 # Tapioc berry: Grants elemental resistance and energizes you for a while
-Item	Tapioc berry	Last Available: "2018-03", Effect: "Berry Elemental", Effect Duration: 20
+Item	Tapioc berry	Last Available: "2018-03", Effect: "Berry Elemental", Effect Duration: 20, Effect: "Berry Experiential", Effect Duration: 20
 Item	tarnished luggage key	Last Available: "2017-01"
 Item	tasty louse	Last Available: "2008-06"
 # tattered scrap of paper: Lets you escape from combat without spending an Adventure
@@ -15754,3 +15790,72 @@ RobotCPU	robot_resist	Cold Resistance: +2, Hot Resistance: +2, Sleaze Resistance
 RobotCPU	robot_items	Item Drop: +20
 RobotCPU	robot_energy	Energy: +1
 RobotCPU	robot_hp2	Maximum HP: +30
+
+# Eternity Codpiece
+
+EternityCodpiece	alien gemstone	Experience (Muscle): +1
+EternityCodpiece	angry agate	PvP Fights: +1
+EternityCodpiece	autumn years wisdom	Experience (Mysticality): +1
+EternityCodpiece	Azurite	Sleaze Damage: +10
+EternityCodpiece	baconstone	Mysticality Percent: +11
+EternityCodpiece	bananagate	Stench Spell Damage: +10
+EternityCodpiece	barrel beryl	Booze Drop: +20
+EternityCodpiece	beach ball marble	Initiative: +9
+EternityCodpiece	beige clambroth marble	Initiative: +7
+EternityCodpiece	big bumboozer marble	Initiative: +11
+EternityCodpiece	black catseye marble	Initiative: +10
+EternityCodpiece	blood cubic zirconia	Spooky Resistance: +3, Spooky Damage: +5
+EternityCodpiece	BRICKO pearl	Candy Drop: +20
+EternityCodpiece	brown crock marble	Initiative: +2
+EternityCodpiece	bumblebee marble	Initiative: +5
+EternityCodpiece	control crystal	Mysticality: +5
+EternityCodpiece	crystalline seal eye	Damage vs. Seals: +25
+EternityCodpiece	crystallized memory	Muscle: +5
+EternityCodpiece	crystallized pumpkin spice	Food Drop: +20
+EternityCodpiece	cubic zirconia	Maximum MP Percent: +10
+EternityCodpiece	effluvious emerald	Stench Resistance: +2
+EternityCodpiece	Eye Agate	Damage vs. Zombies: +25
+EternityCodpiece	eye of the Tiger-lily	Spell Damage Percent: +10
+EternityCodpiece	floaty inverse geode	Moxie: +5
+EternityCodpiece	giant pearl	Pool Skill: +1
+EternityCodpiece	glacial sapphire	Cold Resistance: +2
+EternityCodpiece	glimmering golden crystal	Experience (familiar): +1
+EternityCodpiece	glowing new age crystal	MP Regen Min: 5, MP Regen Max: 10
+EternityCodpiece	green peawee marble	Initiative: +1
+EternityCodpiece	hamethyst	Muscle Percent: +11
+EternityCodpiece	incredibly dense meat gem	Meat Drop: +30
+EternityCodpiece	jet bennie marble	Initiative: +6
+EternityCodpiece	kumquartz	Cold Spell Damage: +10
+EternityCodpiece	Lapis Lazuli	Stench Damage: +10
+EternityCodpiece	lemonade marble	Initiative: +4
+EternityCodpiece	lump of diamond	Damage Reduction: +5
+EternityCodpiece	lunar isotope	Pickpocket Chance: +10
+EternityCodpiece	marine aquamarine	Fishing Skill: +5
+EternityCodpiece	massive gemstone	Item Drop: +10
+EternityCodpiece	moon-amber	Damage vs. Ghosts: +25
+EternityCodpiece	New Age healing crystal	HP Regen Min: 10, HP Regen Max: 20
+EternityCodpiece	New Age hurting crystal	Familiar Damage: +10
+EternityCodpiece	pearidot	Sleaze Spell Damage: +10
+EternityCodpiece	Peridot of Peril	Maximum HP: +20, Maximum MP: +20
+EternityCodpiece	polished moon-amber	Damage vs. Werewolves: +25
+EternityCodpiece	porquoise	Moxie Percent: +11
+EternityCodpiece	priceless diamond	Damage Absorption: +10
+EternityCodpiece	rainbow pearl	Hot Damage: +5, Cold Damage: +5, Stench Damage: +5, Spooky Damage: +5, Sleaze Damage: +5
+EternityCodpiece	red China marble	Initiative: +3
+EternityCodpiece	rhinestone	Experience (Moxie): +1
+EternityCodpiece	Rubee™	Hot Damage: +10
+EternityCodpiece	shadow glass	Spooky Damage: +10
+EternityCodpiece	shard of double-ice	Cold Damage: +10
+EternityCodpiece	solid gold jewel	Maximum HP Percent: +20
+EternityCodpiece	steamy ruby	Hot Resistance: +2
+EternityCodpiece	steely marble	Initiative: +8
+EternityCodpiece	stone of eXtreme power	Muscle: +3, Mysticality: +3, Moxie: +3
+EternityCodpiece	strawberyl	Hot Spell Damage: +10
+EternityCodpiece	tawdry amethyst	Sleaze Resistance: +2
+EternityCodpiece	torquoise	Weapon Damage Percent: +10
+EternityCodpiece	tourmalime	Spooky Spell Damage: +10
+EternityCodpiece	Tuesday's ruby	Monster Level: +5
+EternityCodpiece	unblemished pearl	Adventures: +1
+EternityCodpiece	unearthly onyx	Spooky Resistance: +2
+EternityCodpiece	vampire pearl	Damage vs. Vampires: +25
+EternityCodpiece	Xiblaxian crystal	Damage vs. Bugbears: +25

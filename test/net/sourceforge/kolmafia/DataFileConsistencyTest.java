@@ -110,7 +110,7 @@ public class DataFileConsistencyTest {
   }
 
   @Test
-  public void testPotions() throws IOException {
+  public void testPotions() {
     boolean bogus = false;
     for (var id : allItems()) {
       var type = ItemDatabase.getConsumptionType(id);
@@ -431,7 +431,7 @@ public class DataFileConsistencyTest {
           String identifier = fields[0];
           String name = fields[1];
           switch (identifier) {
-            case "Item", "Clancy" -> {
+            case "Item", "Clancy", "EternityCodpiece" -> {
               var id = ItemDatabase.getExactItemId(name);
               if (id == -1) {
                 if (!CafeDatabase.isCafeConsumable(name)) {
