@@ -85,6 +85,7 @@ import net.sourceforge.kolmafia.modifiers.DoubleModifier;
 import net.sourceforge.kolmafia.modifiers.Modifier;
 import net.sourceforge.kolmafia.modifiers.ModifierList.ModifierValue;
 import net.sourceforge.kolmafia.modifiers.ModifierValueType;
+import net.sourceforge.kolmafia.modifiers.MultiDoubleModifier;
 import net.sourceforge.kolmafia.modifiers.MultiStringModifier;
 import net.sourceforge.kolmafia.modifiers.StringModifier;
 import net.sourceforge.kolmafia.moods.Mood;
@@ -134,6 +135,7 @@ import net.sourceforge.kolmafia.persistence.PocketDatabase.PoemPocket;
 import net.sourceforge.kolmafia.persistence.PocketDatabase.ScrapPocket;
 import net.sourceforge.kolmafia.persistence.PocketDatabase.StatsPocket;
 import net.sourceforge.kolmafia.persistence.PocketDatabase.TwoResultPocket;
+import net.sourceforge.kolmafia.persistence.ShrunkenHeadDatabase;
 import net.sourceforge.kolmafia.persistence.SkillDatabase;
 import net.sourceforge.kolmafia.persistence.WardrobeOMaticDatabase;
 import net.sourceforge.kolmafia.persistence.WardrobeOMaticDatabase.FuturisticClothing;
@@ -3144,6 +3146,47 @@ public abstract class RuntimeLibrary {
     functions.add(new LibraryFunction("numeric_modifier", DataTypes.FLOAT_TYPE, params));
 
     params = List.of(namedParam("modifier", DataTypes.STRING_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params = List.of(namedParam("modifier", DataTypes.MODIFIER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("type", DataTypes.STRING_TYPE),
+            namedParam("modifier", DataTypes.STRING_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("type", DataTypes.STRING_TYPE),
+            namedParam("modifier", DataTypes.MODIFIER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("item", DataTypes.ITEM_TYPE), namedParam("modifier", DataTypes.STRING_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("item", DataTypes.ITEM_TYPE),
+            namedParam("modifier", DataTypes.MODIFIER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "numerics_modifier", new AggregateType(DataTypes.FLOAT_TYPE, 0), params));
+
+    params = List.of(namedParam("modifier", DataTypes.STRING_TYPE));
     functions.add(new LibraryFunction("boolean_modifier", DataTypes.BOOLEAN_TYPE, params));
 
     params = List.of(namedParam("modifier", DataTypes.MODIFIER_TYPE));
@@ -3892,6 +3935,18 @@ public abstract class RuntimeLibrary {
             "futuristic_wardrobe",
             new AggregateType(DataTypes.INT_TYPE, DataTypes.MODIFIER_TYPE),
             params));
+
+    params = List.of(namedParam("monster", DataTypes.MONSTER_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "shrunken_head_zombie", new AggregateType(DataTypes.STRING_TYPE, 0), params));
+
+    params =
+        List.of(
+            namedParam("monster", DataTypes.MONSTER_TYPE), namedParam("path", DataTypes.PATH_TYPE));
+    functions.add(
+        new LibraryFunction(
+            "shrunken_head_zombie", new AggregateType(DataTypes.STRING_TYPE, 0), params));
   }
 
   public static Method findMethod(final String name, final Class<?>[] args)
@@ -10550,13 +10605,21 @@ public abstract class RuntimeLibrary {
     Type type = modifier.getType();
     if (type.equals(DataTypes.MODIFIER_TYPE)) {
       Modifier content = (Modifier) modifier.content;
-      if (content != null && content.getType() == ModifierValueType.NUMERIC) {
-        return content;
+      if (content != null) {
+        switch (content.getType()) {
+          case NUMERIC, MULTINUMERIC -> {
+            return content;
+          }
+        }
       }
       throw controller.runtimeException("numeric modifier required");
     }
     String mod = modifier.toString();
-    return ModifierDatabase.numericByCaselessName(mod);
+    var num = ModifierDatabase.numericByCaselessName(mod);
+    if (num != null) {
+      return num;
+    }
+    return MultiDoubleModifier.byCaselessName(mod);
   }
 
   private static BooleanModifier getBooleanModifier(
@@ -10579,11 +10642,8 @@ public abstract class RuntimeLibrary {
       Modifier content = (Modifier) modifier.content;
       if (content != null) {
         switch (content.getType()) {
-          case STRING -> {
-            return (StringModifier) content;
-          }
-          case MULTISTRING -> {
-            return (MultiStringModifier) content;
+          case STRING, MULTISTRING -> {
+            return content;
           }
         }
       }
@@ -10609,6 +10669,20 @@ public abstract class RuntimeLibrary {
     }
     String mod = modifier.toString();
     return MultiStringModifier.byCaselessName(mod);
+  }
+
+  private static MultiDoubleModifier getMultiDoubleModifier(
+      ScriptRuntime controller, final Value modifier) {
+    Type type = modifier.getType();
+    if (type.equals(DataTypes.MODIFIER_TYPE)) {
+      Modifier content = (Modifier) modifier.content;
+      if (content != null && content.getType() == ModifierValueType.MULTINUMERIC) {
+        return (MultiDoubleModifier) content;
+      }
+      throw controller.runtimeException("numeric modifier required");
+    }
+    String mod = modifier.toString();
+    return MultiDoubleModifier.byCaselessName(mod);
   }
 
   public static Value numeric_modifier(ScriptRuntime controller, final Value modifier) {
@@ -10637,6 +10711,38 @@ public abstract class RuntimeLibrary {
     AdventureResult it = ItemPool.get((int) item.intValue());
 
     return new Value(ModifierDatabase.getNumericModifier(fam, realMod, w, it));
+  }
+
+  public static Value numerics_modifier(ScriptRuntime controller, final Value modifier) {
+    var mod = getMultiDoubleModifier(controller, modifier);
+
+    var values = KoLCharacter.currentMultiDoubleModifier(mod);
+    ArrayValue value = new ArrayValue(new AggregateType(DataTypes.FLOAT_TYPE, values.size()));
+
+    int i = 0;
+    for (var val : values) {
+      value.aset(DataTypes.makeIntValue(i++), new Value(val));
+    }
+
+    return value;
+  }
+
+  public static Value numerics_modifier(
+      ScriptRuntime controller, final Value arg, final Value modifier) {
+    var mod = getMultiDoubleModifier(controller, modifier);
+
+    ModifierType type = RuntimeLibrary.getModifierType(arg);
+    String name = RuntimeLibrary.getModifierName(arg);
+
+    var values = ModifierDatabase.getMultiDoubleModifier(type, name, mod);
+    ArrayValue value = new ArrayValue(new AggregateType(DataTypes.FLOAT_TYPE, values.size()));
+
+    int i = 0;
+    for (var val : values) {
+      value.aset(DataTypes.makeIntValue(i++), new Value(val));
+    }
+
+    return value;
   }
 
   public static Value boolean_modifier(ScriptRuntime controller, final Value modifier) {
@@ -11911,5 +12017,23 @@ public abstract class RuntimeLibrary {
     }
 
     return value;
+  }
+
+  public static Value shrunken_head_zombie(ScriptRuntime controller, final Value monsterVal) {
+    var monId = ((MonsterData) monsterVal.content).getId();
+    var pathId = KoLCharacter.getPath().id;
+    return shrunken_head_zombie(monId, pathId);
+  }
+
+  public static Value shrunken_head_zombie(
+      ScriptRuntime controller, final Value monsterVal, final Value pathVal) {
+    var monId = ((MonsterData) monsterVal.content).getId();
+    var pathId = ((Path) pathVal.content).id;
+    return shrunken_head_zombie(monId, pathId);
+  }
+
+  private static Value shrunken_head_zombie(int monsterId, int pathId) {
+    var abilities = ShrunkenHeadDatabase.shrunkenHeadZombie(monsterId, pathId);
+    return DataTypes.makeStringArrayValue(abilities);
   }
 }
