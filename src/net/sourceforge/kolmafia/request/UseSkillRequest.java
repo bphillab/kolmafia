@@ -24,6 +24,7 @@ import net.sourceforge.kolmafia.RequestThread;
 import net.sourceforge.kolmafia.SpecialOutfit.Checkpoint;
 import net.sourceforge.kolmafia.Speculation;
 import net.sourceforge.kolmafia.equipment.Slot;
+import net.sourceforge.kolmafia.equipment.SlotSet;
 import net.sourceforge.kolmafia.modifiers.BooleanModifier;
 import net.sourceforge.kolmafia.modifiers.DerivedModifier;
 import net.sourceforge.kolmafia.modifiers.DoubleModifier;
@@ -958,6 +959,26 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
                           .anyMatch(i -> i == skillId))
               .map(l -> ItemPool.get(l.getIntKey()))
               .toList();
+
+      var codpieceProvidesSkill =
+          SlotSet.CODPIECE_SLOTS.stream()
+              .map(EquipmentManager::getEquipment)
+              .filter(i -> i != null && i != EquipmentRequest.UNEQUIP)
+              .map(AdventureResult::getItemId)
+              .map(ModifierDatabase::getItemModifiers)
+              .filter(java.util.Objects::nonNull)
+              .flatMap(
+                  mods ->
+                      mods.getStrings(MultiStringModifier.CONDITIONAL_SKILL_EQUIPPED).stream())
+              .mapToInt(SkillDatabase::getSkillId)
+              .anyMatch(i -> i == skillId);
+      if (codpieceProvidesSkill) {
+        var codpiece = ItemPool.get(ItemPool.THE_ETERNITY_CODPIECE, 1);
+        if (!possibleEquipment.contains(codpiece)) {
+          possibleEquipment = new java.util.ArrayList<>(possibleEquipment);
+          possibleEquipment.add(codpiece);
+        }
+      }
 
       if (!possibleEquipment.isEmpty()) {
         possibleEquipment.stream()
