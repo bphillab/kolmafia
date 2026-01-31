@@ -981,8 +981,10 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
         }
       }
 
-      if (!mutableEquipment.isEmpty()) {
-        mutableEquipment.stream()
+      final List<AdventureResult> equipmentForSkill = mutableEquipment;
+
+      if (!equipmentForSkill.isEmpty()) {
+        equipmentForSkill.stream()
             .filter(i -> canSwitchToItem(i) || KoLCharacter.hasEquipped(i))
             .findFirst()
             .ifPresentOrElse(
@@ -994,7 +996,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
                     KoLmafia.updateDisplay(
                         MafiaState.ERROR,
                         "Cannot acquire: "
-                            + mutableEquipment.stream()
+                            + equipmentForSkill.stream()
                                 .map(AdventureResult::getName)
                                 .collect(Collectors.joining(", "))
                             + "."));
