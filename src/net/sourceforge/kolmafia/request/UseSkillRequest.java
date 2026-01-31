@@ -960,6 +960,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
               .map(l -> ItemPool.get(l.getIntKey()))
               .toList();
 
+      var mutableEquipment = possibleEquipment;
       var codpieceProvidesSkill =
           SlotSet.CODPIECE_SLOTS.stream()
               .map(EquipmentManager::getEquipment)
@@ -974,14 +975,14 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
               .anyMatch(i -> i == skillId);
       if (codpieceProvidesSkill) {
         var codpiece = ItemPool.get(ItemPool.THE_ETERNITY_CODPIECE, 1);
-        if (!possibleEquipment.contains(codpiece)) {
-          possibleEquipment = new java.util.ArrayList<>(possibleEquipment);
-          possibleEquipment.add(codpiece);
+        if (!mutableEquipment.contains(codpiece)) {
+          mutableEquipment = new java.util.ArrayList<>(mutableEquipment);
+          mutableEquipment.add(codpiece);
         }
       }
 
-      if (!possibleEquipment.isEmpty()) {
-        possibleEquipment.stream()
+      if (!mutableEquipment.isEmpty()) {
+        mutableEquipment.stream()
             .filter(i -> canSwitchToItem(i) || KoLCharacter.hasEquipped(i))
             .findFirst()
             .ifPresentOrElse(
@@ -993,7 +994,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
                     KoLmafia.updateDisplay(
                         MafiaState.ERROR,
                         "Cannot acquire: "
-                            + possibleEquipment.stream()
+                            + mutableEquipment.stream()
                                 .map(AdventureResult::getName)
                                 .collect(Collectors.joining(", "))
                             + "."));
