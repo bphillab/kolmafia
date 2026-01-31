@@ -17,7 +17,6 @@ import static internal.helpers.Player.withNextResponse;
 import static internal.helpers.Player.withPath;
 import static internal.helpers.Player.withProperty;
 import static internal.helpers.Player.withSkill;
-import static internal.helpers.Player.withUnequipped;
 import static internal.matchers.Preference.isSetTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -219,10 +218,10 @@ class UseSkillRequestTest {
             withSkill(SkillPool.BCZ__BLOOD_BATH),
             withEquippableItem(ItemPool.THE_ETERNITY_CODPIECE),
             withEquipped(Slot.ACCESSORY1, ItemPool.MR_ACCESSORY),
-            withUnequipped(Slot.ACCESSORY3),
             withEquipped(Slot.CODPIECE1, ItemPool.get(bloodCubicZirconia, 1)));
     HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You equip an item:");
     HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You feel bloodbathed.");
+    HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "Item unequipped:");
 
     try (cleanups) {
       var req = UseSkillRequest.getInstance(SkillPool.BCZ__BLOOD_BATH, 1);
@@ -233,13 +232,15 @@ class UseSkillRequestTest {
           EquipmentManager.getEquipment(Slot.ACCESSORY1).getItemId(),
           equalTo(ItemPool.MR_ACCESSORY));
       assertThat(EquipmentManager.getEquipment(Slot.ACCESSORY3), equalTo(EquipmentRequest.UNEQUIP));
-      assertThat(getRequests(), hasSize(2));
+      assertThat(getRequests(), hasSize(3));
       assertPostRequest(
           getRequests().get(0),
           "/inv_equip.php",
           "which=2&ajax=1&action=equip&whichitem=12067&slot=3");
       assertGetRequest(
           getRequests().get(1), "/runskillz.php", "action=Skillz&whichskill=7574&ajax=1&quantity=1");
+      assertPostRequest(
+          getRequests().get(2), "/inv_equip.php", "which=2&ajax=1&action=unequip&type=acc3");
     }
   }
 
