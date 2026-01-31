@@ -958,9 +958,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
                           .mapToInt(SkillDatabase::getSkillId)
                           .anyMatch(i -> i == skillId))
               .map(l -> ItemPool.get(l.getIntKey()))
-              .toList();
-
-      var mutableEquipment = possibleEquipment;
+              .collect(Collectors.toCollection(java.util.ArrayList::new));
       var codpieceProvidesSkill =
           SlotSet.CODPIECE_SLOTS.stream()
               .map(EquipmentManager::getEquipment)
@@ -975,13 +973,12 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
               .anyMatch(i -> i == skillId);
       if (codpieceProvidesSkill) {
         var codpiece = ItemPool.get(ItemPool.THE_ETERNITY_CODPIECE, 1);
-        if (!mutableEquipment.contains(codpiece)) {
-          mutableEquipment = new java.util.ArrayList<>(mutableEquipment);
-          mutableEquipment.add(codpiece);
+        if (!possibleEquipment.contains(codpiece)) {
+          possibleEquipment.add(codpiece);
         }
       }
 
-      final List<AdventureResult> equipmentForSkill = mutableEquipment;
+      final List<AdventureResult> equipmentForSkill = possibleEquipment;
 
       if (!equipmentForSkill.isEmpty()) {
         equipmentForSkill.stream()
