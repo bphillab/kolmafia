@@ -192,6 +192,7 @@ class UseSkillRequestTest {
     var cleanups =
         new Cleanups(
             withMP(100, 100, 100),
+            withSkill(SkillPool.BCZ__BLOOD_BATH),
             withEquipped(Slot.ACCESSORY3, ItemPool.THE_ETERNITY_CODPIECE),
             withEquipped(Slot.CODPIECE1, ItemPool.get(bloodCubicZirconia, 1)));
     HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You feel bloodbathed.");
@@ -214,6 +215,7 @@ class UseSkillRequestTest {
     var cleanups =
         new Cleanups(
             withMP(100, 100, 100),
+            withSkill(SkillPool.BCZ__BLOOD_BATH),
             withEquippableItem(ItemPool.THE_ETERNITY_CODPIECE),
             withEquipped(Slot.ACCESSORY1, ItemPool.MR_ACCESSORY),
             withEquipped(Slot.CODPIECE1, ItemPool.get(bloodCubicZirconia, 1)));
