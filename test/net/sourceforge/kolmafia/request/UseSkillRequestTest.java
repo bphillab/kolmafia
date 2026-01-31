@@ -17,6 +17,7 @@ import static internal.helpers.Player.withNextResponse;
 import static internal.helpers.Player.withPath;
 import static internal.helpers.Player.withProperty;
 import static internal.helpers.Player.withSkill;
+import static internal.helpers.Player.withUnequipped;
 import static internal.matchers.Preference.isSetTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -218,6 +219,7 @@ class UseSkillRequestTest {
             withSkill(SkillPool.BCZ__BLOOD_BATH),
             withEquippableItem(ItemPool.THE_ETERNITY_CODPIECE),
             withEquipped(Slot.ACCESSORY1, ItemPool.MR_ACCESSORY),
+            withUnequipped(Slot.ACCESSORY3),
             withEquipped(Slot.CODPIECE1, ItemPool.get(bloodCubicZirconia, 1)));
     HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You equip an item:");
     HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You feel bloodbathed.");
