@@ -155,6 +155,9 @@ public class UseItemRequest extends GenericRequest {
   private static String lastUrlString = null;
 
   private static final int PVP_FIGHTS_CAP = 255;
+
+  private static final Pattern PVP_FIGHTS_PATTERN =
+      Pattern.compile("\\+?(\\d+) PvP fights?", Pattern.CASE_INSENSITIVE);
   private static int askedAboutPvP = 0;
   @FunctionalInterface
   interface PvPConfirmHandler {
@@ -335,8 +338,8 @@ public class UseItemRequest extends GenericRequest {
     }
 
     int PvPGain = ConsumablesDatabase.getPvPFights(itemName);
-    if (PvPGain <= 0) {
-      // Non-consumable items can grant PvP fights, and those are tracked in item modifiers.
+    if (PvPGain == 0) {
+      // Non-consumable items can grant PvP fights; read the description text to detect them.
       ConsumptionType usage = ItemDatabase.getConsumptionType(itemId);
       if (usage == ConsumptionType.USE
           || usage == ConsumptionType.USE_MULTIPLE
