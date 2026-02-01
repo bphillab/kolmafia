@@ -38,8 +38,8 @@ import net.sourceforge.kolmafia.objectpool.SkillPool;
 import net.sourceforge.kolmafia.persistence.ItemDatabase;
 import net.sourceforge.kolmafia.persistence.SkillDatabase;
 import net.sourceforge.kolmafia.preferences.Preferences;
-import net.sourceforge.kolmafia.session.EquipmentManager;
 import net.sourceforge.kolmafia.session.ContactManager;
+import net.sourceforge.kolmafia.session.EquipmentManager;
 import net.sourceforge.kolmafia.session.InventoryManager;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -204,7 +204,9 @@ class UseSkillRequestTest {
       assertEquals("", UseSkillRequest.lastUpdate);
       assertThat(getRequests(), hasSize(1));
       assertGetRequest(
-          getRequests().get(0), "/runskillz.php", "action=Skillz&whichskill=7574&ajax=1&quantity=1");
+          getRequests().get(0),
+          "/runskillz.php",
+          "action=Skillz&whichskill=7574&ajax=1&quantity=1");
     }
   }
 
@@ -238,7 +240,9 @@ class UseSkillRequestTest {
           "/inv_equip.php",
           "which=2&ajax=1&slot=3&action=equip&whichitem=12067");
       assertGetRequest(
-          getRequests().get(1), "/runskillz.php", "action=Skillz&whichskill=7574&ajax=1&quantity=1");
+          getRequests().get(1),
+          "/runskillz.php",
+          "action=Skillz&whichskill=7574&ajax=1&quantity=1");
       assertPostRequest(
           getRequests().get(2), "/inv_equip.php", "which=2&ajax=1&action=unequip&type=acc3");
     }

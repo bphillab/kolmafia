@@ -967,8 +967,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
               .map(ModifierDatabase::getItemModifiers)
               .filter(java.util.Objects::nonNull)
               .flatMap(
-                  mods ->
-                      mods.getStrings(MultiStringModifier.CONDITIONAL_SKILL_EQUIPPED).stream())
+                  mods -> mods.getStrings(MultiStringModifier.CONDITIONAL_SKILL_EQUIPPED).stream())
               .mapToInt(SkillDatabase::getSkillId)
               .anyMatch(i -> i == skillId);
       if (codpieceProvidesSkill) {
