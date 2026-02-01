@@ -146,9 +146,11 @@ public class SpleenItemRequest extends UseItemRequest {
       return true;
     }
 
+    int itemId = this.itemUsed.getItemId();
+    int count = this.itemUsed.getCount();
     String itemName = this.itemUsed.getName();
 
-    if (!UseItemRequest.askAboutPvP(itemName)) {
+    if (!UseItemRequest.askAboutPvP(itemId, itemName, count)) {
       return false;
     }
 

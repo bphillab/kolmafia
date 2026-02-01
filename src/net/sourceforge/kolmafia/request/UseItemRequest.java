@@ -154,7 +154,22 @@ public class UseItemRequest extends GenericRequest {
   private static int currentItemId = -1;
   private static String lastUrlString = null;
 
+  private static final int PVP_FIGHTS_CAP = 255;
+  private static final Pattern PVP_FIGHTS_PATTERN =
+      Pattern.compile("\\+?(\\d+) PvP fights?", Pattern.CASE_INSENSITIVE);
   private static int askedAboutPvP = 0;
+  @FunctionalInterface
+  interface PvPConfirmHandler {
+    boolean confirm(String message);
+  }
+
+  static PvPConfirmHandler pvpConfirmHandler = InputFieldUtilities::confirm;
+
+  static PvPConfirmHandler setPvPConfirmHandler(final PvPConfirmHandler handler) {
+    PvPConfirmHandler previous = UseItemRequest.pvpConfirmHandler;
+    UseItemRequest.pvpConfirmHandler = handler;
+    return previous;
+  }
 
   public static final UseItemRequest getInstance(final int itemId) {
     return UseItemRequest.getInstance(itemId, 1);
@@ -311,25 +326,67 @@ public class UseItemRequest extends GenericRequest {
   }
 
   public static boolean askAboutPvP(final String itemName) {
+    int itemId = ItemDatabase.getItemId(itemName);
+    return UseItemRequest.askAboutPvP(itemId, itemName, 1);
+  }
+
+  public static boolean askAboutPvP(final int itemId, final String itemName, final int count) {
     // If we've already asked about PvP, don't nag.
     if (UseItemRequest.askedAboutPvP == KoLCharacter.getUserId()) {
       return true;
     }
 
     int PvPGain = ConsumablesDatabase.getPvPFights(itemName);
+    if (PvPGain <= 0) {
+      ConsumptionType usage = ItemDatabase.getConsumptionType(itemId);
+      if (usage == ConsumptionType.USE
+          || usage == ConsumptionType.USE_MULTIPLE
+          || usage == ConsumptionType.USE_MESSAGE_DISPLAY) {
+        String descriptionText = DebugDatabase.itemDescriptionText(itemId, false);
+        if (descriptionText != null) {
+          Matcher matcher = PVP_FIGHTS_PATTERN.matcher(descriptionText);
+          if (matcher.find()) {
+            PvPGain = StringUtilities.parseInt(matcher.group(1));
+          }
+        }
+      }
+    }
 
     // Does this item even give us PvP fights?
     if (PvPGain <= 0) {
       return true;
     }
 
-    // Is the hippy stone broken?
-    if (KoLCharacter.getHippyStoneBroken()) {
+    int totalPvPGain = Math.max(0, count) * PvPGain;
+    int attacksLeft = KoLCharacter.getAttacksLeft();
+    boolean hippyStoneBroken = KoLCharacter.getHippyStoneBroken();
+
+    if (hippyStoneBroken && attacksLeft + totalPvPGain <= PVP_FIGHTS_CAP) {
       return true;
     }
 
-    String message = "Are you sure you want consume that before breaking the hippy stone?";
-    if (!InputFieldUtilities.confirm(message)) {
+    StringBuilder message = new StringBuilder();
+    message.append("You are about to gain PvP fights from ").append(itemName).append(".");
+    if (!hippyStoneBroken) {
+      message.append("\nYour Hippy Stone is intact (or healed), so the fights will be lost");
+      message.append(" unless you break it first.");
+    }
+    if (attacksLeft + totalPvPGain > PVP_FIGHTS_CAP) {
+      int wasted = attacksLeft + totalPvPGain - PVP_FIGHTS_CAP;
+      message
+          .append("\nYou currently have ")
+          .append(attacksLeft)
+          .append(" PvP fights.");
+      message
+          .append(" Gaining ")
+          .append(totalPvPGain)
+          .append(" more would waste ")
+          .append(wasted)
+          .append(wasted == 1 ? " fight" : " fights")
+          .append(" due to the 255 fight cap.");
+    }
+    message.append("\nAre you sure you want to proceed?");
+    if (!UseItemRequest.pvpConfirmHandler.confirm(message.toString())) {
       return false;
     }
 
@@ -910,6 +967,9 @@ public class UseItemRequest extends GenericRequest {
     // Equipment should be handled by a different kind of request.
 
     int itemId = this.itemUsed.getItemId();
+    if (!UseItemRequest.askAboutPvP(itemId, this.itemUsed.getName(), this.itemUsed.getCount())) {
+      return;
+    }
     boolean isSealFigurine = ItemDatabase.isSealFigurine(itemId);
     boolean isBRICKOMonster = ItemDatabase.isBRICKOMonster(itemId);
 
