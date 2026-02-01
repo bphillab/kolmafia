@@ -236,7 +236,7 @@ class UseSkillRequestTest {
       assertPostRequest(
           getRequests().get(0),
           "/inv_equip.php",
-          "which=2&ajax=1&action=equip&whichitem=12067&slot=3");
+          "which=2&ajax=1&slot=3&action=equip&whichitem=12067");
       assertGetRequest(
           getRequests().get(1), "/runskillz.php", "action=Skillz&whichskill=7574&ajax=1&quantity=1");
       assertPostRequest(
