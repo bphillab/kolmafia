@@ -35,8 +35,10 @@ import net.sourceforge.kolmafia.equipment.Slot;
 import net.sourceforge.kolmafia.objectpool.EffectPool;
 import net.sourceforge.kolmafia.objectpool.ItemPool;
 import net.sourceforge.kolmafia.objectpool.SkillPool;
+import net.sourceforge.kolmafia.persistence.ItemDatabase;
 import net.sourceforge.kolmafia.persistence.SkillDatabase;
 import net.sourceforge.kolmafia.preferences.Preferences;
+import net.sourceforge.kolmafia.session.EquipmentManager;
 import net.sourceforge.kolmafia.session.ContactManager;
 import net.sourceforge.kolmafia.session.InventoryManager;
 import org.junit.jupiter.api.AfterAll;
@@ -180,6 +182,65 @@ class UseSkillRequestTest {
       UseSkillRequest req = UseSkillRequest.getInstance(SkillPool.DONHOS, "me", 5);
       req.run();
       assertThat("_donhosCasts", isSetTo(6));
+    }
+  }
+
+  @Test
+  void castsCodpieceGemSkillWhenCodpieceEquipped() {
+    HttpClientWrapper.setupFakeClient();
+    var bloodCubicZirconia = ItemDatabase.getItemId("blood cubic zirconia");
+    var cleanups =
+        new Cleanups(
+            withMP(100, 100, 100),
+            withSkill(SkillPool.BCZ__BLOOD_BATH),
+            withEquipped(Slot.ACCESSORY3, ItemPool.THE_ETERNITY_CODPIECE),
+            withEquipped(Slot.CODPIECE1, ItemPool.get(bloodCubicZirconia, 1)));
+    HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You feel bloodbathed.");
+
+    try (cleanups) {
+      var req = UseSkillRequest.getInstance(SkillPool.BCZ__BLOOD_BATH, 1);
+      req.run();
+
+      assertEquals("", UseSkillRequest.lastUpdate);
+      assertThat(getRequests(), hasSize(1));
+      assertGetRequest(
+          getRequests().get(0), "/runskillz.php", "action=Skillz&whichskill=7574&ajax=1&quantity=1");
+    }
+  }
+
+  @Test
+  void equipsCodpieceForGemSkillAndRestoresAccessories() {
+    HttpClientWrapper.setupFakeClient();
+    var bloodCubicZirconia = ItemDatabase.getItemId("blood cubic zirconia");
+    var cleanups =
+        new Cleanups(
+            withMP(100, 100, 100),
+            withSkill(SkillPool.BCZ__BLOOD_BATH),
+            withEquippableItem(ItemPool.THE_ETERNITY_CODPIECE),
+            withEquipped(Slot.ACCESSORY1, ItemPool.MR_ACCESSORY),
+            withEquipped(Slot.CODPIECE1, ItemPool.get(bloodCubicZirconia, 1)));
+    HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You equip an item:");
+    HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "You feel bloodbathed.");
+    HttpClientWrapper.fakeClientBuilder.client.addResponse(200, "Item unequipped:");
+
+    try (cleanups) {
+      var req = UseSkillRequest.getInstance(SkillPool.BCZ__BLOOD_BATH, 1);
+      req.run();
+
+      assertEquals("", UseSkillRequest.lastUpdate);
+      assertThat(
+          EquipmentManager.getEquipment(Slot.ACCESSORY1).getItemId(),
+          equalTo(ItemPool.MR_ACCESSORY));
+      assertThat(EquipmentManager.getEquipment(Slot.ACCESSORY3), equalTo(EquipmentRequest.UNEQUIP));
+      assertThat(getRequests(), hasSize(3));
+      assertPostRequest(
+          getRequests().get(0),
+          "/inv_equip.php",
+          "which=2&ajax=1&action=equip&whichitem=12067&slot=3");
+      assertGetRequest(
+          getRequests().get(1), "/runskillz.php", "action=Skillz&whichskill=7574&ajax=1&quantity=1");
+      assertPostRequest(
+          getRequests().get(2), "/inv_equip.php", "which=2&ajax=1&action=unequip&type=acc3");
     }
   }
 
