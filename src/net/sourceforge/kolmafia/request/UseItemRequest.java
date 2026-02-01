@@ -23,6 +23,7 @@ import net.sourceforge.kolmafia.SpecialOutfit.Checkpoint;
 import net.sourceforge.kolmafia.ZodiacSign;
 import net.sourceforge.kolmafia.equipment.Slot;
 import net.sourceforge.kolmafia.listener.NamedListenerRegistry;
+import net.sourceforge.kolmafia.modifiers.DoubleModifier;
 import net.sourceforge.kolmafia.modifiers.StringModifier;
 import net.sourceforge.kolmafia.moods.ManaBurnManager;
 import net.sourceforge.kolmafia.moods.RecoveryManager;
@@ -35,7 +36,6 @@ import net.sourceforge.kolmafia.objectpool.SkillPool;
 import net.sourceforge.kolmafia.persistence.ConcoctionDatabase;
 import net.sourceforge.kolmafia.persistence.ConsumablesDatabase;
 import net.sourceforge.kolmafia.persistence.DailyLimitDatabase.DailyLimitType;
-import net.sourceforge.kolmafia.persistence.DebugDatabase;
 import net.sourceforge.kolmafia.persistence.EffectDatabase;
 import net.sourceforge.kolmafia.persistence.EquipmentDatabase;
 import net.sourceforge.kolmafia.persistence.FamiliarDatabase;
@@ -155,6 +155,7 @@ public class UseItemRequest extends GenericRequest {
   private static String lastUrlString = null;
 
   private static final int PVP_FIGHTS_CAP = 255;
+
   private static final Pattern PVP_FIGHTS_PATTERN =
       Pattern.compile("\\+?(\\d+) PvP fights?", Pattern.CASE_INSENSITIVE);
   private static int askedAboutPvP = 0;
@@ -336,20 +337,16 @@ public class UseItemRequest extends GenericRequest {
       return true;
     }
 
-    int PvPGain = Math.max(0, ConsumablesDatabase.getPvPFights(itemName));
+    int PvPGain = ConsumablesDatabase.getPvPFights(itemName);
     if (PvPGain == 0) {
       // Non-consumable items can grant PvP fights; read the description text to detect them.
       ConsumptionType usage = ItemDatabase.getConsumptionType(itemId);
       if (usage == ConsumptionType.USE
           || usage == ConsumptionType.USE_MULTIPLE
           || usage == ConsumptionType.USE_MESSAGE_DISPLAY) {
-        String descriptionText = DebugDatabase.itemDescriptionText(itemId, false);
-        if (descriptionText != null) {
-          Matcher matcher = PVP_FIGHTS_PATTERN.matcher(descriptionText);
-          if (matcher.find()) {
-            PvPGain = StringUtilities.parseInt(matcher.group(1));
-          }
-        }
+        PvPGain =
+            (int) ModifierDatabase.getNumericModifier(
+                ModifierType.ITEM, itemId, DoubleModifier.PVP_FIGHTS);
       }
     }
 
@@ -358,7 +355,7 @@ public class UseItemRequest extends GenericRequest {
       return true;
     }
 
-    int totalPvPGain = Math.max(0, count) * PvPGain;
+    int totalPvPGain = count * PvPGain;
     int attacksLeft = KoLCharacter.getAttacksLeft();
     boolean hippyStoneBroken = KoLCharacter.getHippyStoneBroken();
 
