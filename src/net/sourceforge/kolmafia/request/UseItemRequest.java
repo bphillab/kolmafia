@@ -336,8 +336,9 @@ public class UseItemRequest extends GenericRequest {
       return true;
     }
 
-    int PvPGain = ConsumablesDatabase.getPvPFights(itemName);
-    if (PvPGain <= 0) {
+    int PvPGain = Math.max(0, ConsumablesDatabase.getPvPFights(itemName));
+    if (PvPGain == 0) {
+      // Non-consumable items can grant PvP fights; read the description text to detect them.
       ConsumptionType usage = ItemDatabase.getConsumptionType(itemId);
       if (usage == ConsumptionType.USE
           || usage == ConsumptionType.USE_MULTIPLE
