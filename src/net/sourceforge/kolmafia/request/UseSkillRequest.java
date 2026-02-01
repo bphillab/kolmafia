@@ -949,6 +949,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
     if (SkillDatabase.getSkillTags(skillId).contains(SkillDatabase.SkillTag.NONCOMBAT)) {
       final List<AdventureResult> equipmentForSkill = getNoncombatSkillProviders();
 
+
       if (!equipmentForSkill.isEmpty()) {
         equipmentForSkill.stream()
             .filter(i -> canSwitchToItem(i) || KoLCharacter.hasEquipped(i))
