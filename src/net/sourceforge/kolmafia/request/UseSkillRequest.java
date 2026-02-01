@@ -24,6 +24,7 @@ import net.sourceforge.kolmafia.RequestThread;
 import net.sourceforge.kolmafia.SpecialOutfit.Checkpoint;
 import net.sourceforge.kolmafia.Speculation;
 import net.sourceforge.kolmafia.equipment.Slot;
+import net.sourceforge.kolmafia.equipment.SlotSet;
 import net.sourceforge.kolmafia.modifiers.BooleanModifier;
 import net.sourceforge.kolmafia.modifiers.DerivedModifier;
 import net.sourceforge.kolmafia.modifiers.DoubleModifier;
@@ -946,21 +947,11 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
     }
 
     if (SkillDatabase.getSkillTags(skillId).contains(SkillDatabase.SkillTag.NONCOMBAT)) {
-      var possibleEquipment =
-          ModifierDatabase.getNonCombatSkillProviders().stream()
-              .filter(l -> l.getType() == ModifierType.ITEM)
-              .filter(
-                  l ->
-                      ModifierDatabase.getMultiStringModifier(
-                              l, MultiStringModifier.CONDITIONAL_SKILL_EQUIPPED)
-                          .stream()
-                          .mapToInt(SkillDatabase::getSkillId)
-                          .anyMatch(i -> i == skillId))
-              .map(l -> ItemPool.get(l.getIntKey()))
-              .toList();
+      final List<AdventureResult> equipmentForSkill = getNoncombatSkillProviders();
 
-      if (!possibleEquipment.isEmpty()) {
-        possibleEquipment.stream()
+
+      if (!equipmentForSkill.isEmpty()) {
+        equipmentForSkill.stream()
             .filter(i -> canSwitchToItem(i) || KoLCharacter.hasEquipped(i))
             .findFirst()
             .ifPresentOrElse(
@@ -972,7 +963,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
                     KoLmafia.updateDisplay(
                         MafiaState.ERROR,
                         "Cannot acquire: "
-                            + possibleEquipment.stream()
+                            + equipmentForSkill.stream()
                                 .map(AdventureResult::getName)
                                 .collect(Collectors.joining(", "))
                             + "."));
@@ -982,6 +973,48 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
     if (Preferences.getBoolean("switchEquipmentForBuffs")) {
       reduceManaConsumption(skillId);
     }
+  }
+
+  private boolean canAccessSkillFromEquipment() {
+    if (!SkillDatabase.getSkillTags(skillId).contains(SkillDatabase.SkillTag.NONCOMBAT)) {
+      return false;
+    }
+    return !getNoncombatSkillProviders().isEmpty();
+  }
+
+  private List<AdventureResult> getNoncombatSkillProviders() {
+    var possibleEquipment =
+        ModifierDatabase.getNonCombatSkillProviders().stream()
+            .filter(l -> l.getType() == ModifierType.ITEM)
+            .filter(
+                l ->
+                    ModifierDatabase.getMultiStringModifier(
+                            l, MultiStringModifier.CONDITIONAL_SKILL_EQUIPPED)
+                        .stream()
+                        .mapToInt(SkillDatabase::getSkillId)
+                        .anyMatch(i -> i == skillId))
+            .map(l -> ItemPool.get(l.getIntKey()))
+            .collect(Collectors.toCollection(java.util.ArrayList::new));
+
+    var codpieceProvidesSkill =
+        SlotSet.CODPIECE_SLOTS.stream()
+            .map(EquipmentManager::getEquipment)
+            .filter(i -> i != null && i != EquipmentRequest.UNEQUIP)
+            .map(AdventureResult::getItemId)
+            .map(ModifierDatabase::getItemModifiers)
+            .filter(java.util.Objects::nonNull)
+            .flatMap(
+                mods -> mods.getStrings(MultiStringModifier.CONDITIONAL_SKILL_EQUIPPED).stream())
+            .mapToInt(SkillDatabase::getSkillId)
+            .anyMatch(i -> i == skillId);
+    if (codpieceProvidesSkill) {
+      var codpiece = ItemPool.get(ItemPool.THE_ETERNITY_CODPIECE, 1);
+      if (!possibleEquipment.contains(codpiece)) {
+        possibleEquipment.add(codpiece);
+      }
+    }
+
+    return possibleEquipment;
   }
 
   private boolean isValidSwitch(
@@ -1203,8 +1236,10 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
     }
 
     if (!KoLCharacter.hasSkill(this.skillName)) {
-      UseSkillRequest.lastUpdate = "You don't know how to cast " + this.skillName + ".";
-      return;
+      if (!this.canAccessSkillFromEquipment()) {
+        UseSkillRequest.lastUpdate = "You don't know how to cast " + this.skillName + ".";
+        return;
+      }
     }
 
     long available = this.getMaximumCast();
