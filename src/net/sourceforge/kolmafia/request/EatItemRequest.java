@@ -387,7 +387,7 @@ public class EatItemRequest extends UseItemRequest {
       return false;
     }
 
-    if (!UseItemRequest.askAboutPvP(itemName)) {
+    if (!UseItemRequest.askAboutPvP(itemId, itemName, count)) {
       return false;
     }
 

@@ -13972,7 +13972,7 @@ Item	metal meteoroid	Last Available: "2017-08"
 # metandienone: Increase a Pokefamiliar's power by 1
 Item	meteorite fragment	Last Available: "2019-07"
 # Meteorite-Ade: Gives 5 PvP fights
-Item	Meteorite-Ade	Last Available: "2017-08"
+Item	Meteorite-Ade	PvP Fights: +5, Last Available: "2017-08"
 # micronova: Vaporizes an enemy and causes all of its items to drop
 Item	micronova	Last Available: "2019-12"
 # milestone: Explores the Desert
@@ -14493,7 +14493,7 @@ Item	pumpkin carriage	Last Available: "2010-11"
 # pumpkin spice whorl: Permanent +3 Level for Pastamancer Spice Ghost
 Item	pumpkin spice whorl	Last Available: "2024-12"
 # punching mirror: Punch it for 5 PvP fights per day
-Item	punching mirror	Last Available: "2023-12"
+Item	punching mirror	PvP Fights: +5, Last Available: "2023-12"
 Item	puppet strings	Free Pull
 Item	purple prose pen	Last Available: "2012-12"
 Item	purpleheart logs	Last Available: "2020-08"
