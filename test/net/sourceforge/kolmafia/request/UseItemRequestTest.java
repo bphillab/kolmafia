@@ -38,6 +38,7 @@ import net.sourceforge.kolmafia.objectpool.ItemPool;
 import net.sourceforge.kolmafia.objectpool.SkillPool;
 import net.sourceforge.kolmafia.persistence.ConsumablesDatabase;
 import net.sourceforge.kolmafia.persistence.EffectDatabase;
+import net.sourceforge.kolmafia.persistence.ItemDatabase;
 import net.sourceforge.kolmafia.preferences.Preferences;
 import net.sourceforge.kolmafia.session.InventoryManager;
 import net.sourceforge.kolmafia.session.LimitMode;
@@ -74,6 +75,63 @@ class UseItemRequestTest {
       var cleanups = new Cleanups(withLimitMode(LimitMode.NONE), withItem(itemId));
       try (cleanups) {
         assertEquals(1, UseItemRequest.maximumUses(itemId));
+      }
+    }
+  }
+
+  @Nested
+  class PvPFightWarnings {
+    private Cleanups withHippyStoneBroken(boolean broken) {
+      var old = KoLCharacter.getHippyStoneBroken();
+      KoLCharacter.setHippyStoneBroken(broken);
+      return new Cleanups(() -> KoLCharacter.setHippyStoneBroken(old));
+    }
+
+    @Test
+    void warnsWhenHippyStoneIntactForConsumable() {
+      int itemId = ItemPool.PURPLE_BEAST_ENERGY_DRINK;
+      String itemName = ItemDatabase.getItemName(itemId);
+      String[] prompt = new String[1];
+      var oldHandler =
+          UseItemRequest.setPvPConfirmHandler(
+              message -> {
+                prompt[0] = message;
+                return false;
+              });
+      var cleanups =
+          new Cleanups(
+              withUserId(10001),
+              withAttacksLeft(0),
+              withHippyStoneBroken(false),
+              () -> UseItemRequest.setPvPConfirmHandler(oldHandler));
+
+      try (cleanups) {
+        assertFalse(UseItemRequest.askAboutPvP(itemId, itemName, 1));
+        assertThat(prompt[0], containsString("Hippy Stone"));
+      }
+    }
+
+    @Test
+    void warnsWhenConsumableWouldOverflowPvpCap() {
+      int itemId = ItemPool.PURPLE_BEAST_ENERGY_DRINK;
+      String itemName = ItemDatabase.getItemName(itemId);
+      String[] prompt = new String[1];
+      var oldHandler =
+          UseItemRequest.setPvPConfirmHandler(
+              message -> {
+                prompt[0] = message;
+                return false;
+              });
+      var cleanups =
+          new Cleanups(
+              withUserId(10002),
+              withAttacksLeft(250),
+              withHippyStoneBroken(true),
+              () -> UseItemRequest.setPvPConfirmHandler(oldHandler));
+
+      try (cleanups) {
+        assertFalse(UseItemRequest.askAboutPvP(itemId, itemName, 1));
+        assertThat(prompt[0], containsString("255 fight cap"));
       }
     }
   }

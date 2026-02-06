@@ -438,7 +438,7 @@ public class DrinkItemRequest extends UseItemRequest {
       return true;
     }
 
-    if (!UseItemRequest.askAboutPvP(itemName)) {
+    if (!UseItemRequest.askAboutPvP(itemId, itemName, count)) {
       return false;
     }
 

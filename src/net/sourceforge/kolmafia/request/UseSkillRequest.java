@@ -48,7 +48,6 @@ import net.sourceforge.kolmafia.session.DreadScrollManager;
 import net.sourceforge.kolmafia.session.EquipmentManager;
 import net.sourceforge.kolmafia.session.InventoryManager;
 import net.sourceforge.kolmafia.session.ResultProcessor;
-import net.sourceforge.kolmafia.utilities.InputFieldUtilities;
 import net.sourceforge.kolmafia.utilities.LockableListFactory;
 import net.sourceforge.kolmafia.utilities.StringUtilities;
 
@@ -722,6 +721,7 @@ public class UseSkillRequest extends GenericRequest implements Comparable<UseSki
 
     return Long.MAX_VALUE;
   }
+
 
   @Override
   public String toString() {

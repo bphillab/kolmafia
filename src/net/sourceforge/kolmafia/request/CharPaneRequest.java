@@ -1765,6 +1765,9 @@ public class CharPaneRequest extends GenericRequest {
 
     int pvpFights = json.getIntValue("pvpfights");
     KoLCharacter.setAttacksLeft(pvpFights);
+    if (json.containsKey("hippy_stone_broken")) {
+      KoLCharacter.setHippyStoneBroken(json.getBooleanValue("hippy_stone_broken"));
+    }
 
     boolean hardcore = json.getIntValue("hardcore") == 1;
     KoLCharacter.setHardcore(hardcore);
